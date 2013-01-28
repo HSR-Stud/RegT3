@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Tue Oct 30 13:51:39 CET 2012
+markTmpDer=true
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=MikroelSys1.tex
+outputFile=MikroelSys1.pdf
+langSpell=de
+markDer=true
+srcDir=
