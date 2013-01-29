@@ -443,8 +443,46 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 
 
 \subsection{Bodediagramm und Nyquistdiagramm}
+\subsubsection{Einleitung}
+\begin{itemize}
+	\item Ist der offene Regelkreis stabil, muss man aufpassen, dass durch das Schliessen
+	des Regelkreises (bzw. der Kreisschaltung) der geschlossene Regelkreis nicht instabil
+	wird.
+	\item Ist dagegen der offene Regelkreis instabil, dann kann untersucht werden, unter
+	welchen Bedingungen der geschlossenen Regelkreis stabil werden kann.
+	\item Das
+	spezielle (oder vereinfachte) Nyquistkriterium kann nur dann angewendet werden,
+	wenn der offene Regelkreis ein System mit Ausgleich ist;
+	\item Beim allgemeinen Nyquistkriterium
+	kann der offene Regelkreis ein beliebiges LZI-System sein, insbesondere also auch
+	ein instabiles.
+\end{itemize}
+\subsubsection{Nyquistkriterium}
+		Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der
+		Ortskurve in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur
+		Linken\grqq\ liegt.
 
-\subsection{Stabilität allgemeines Nyquistkriterium}
+\subsubsection{Anwendung des Allgemeinen Nyquistkriteriums}
+\begin{enumerate}
+\item Die Anzahl N der Pole von G0, die in der rechten Halbebene oder auf der
+imaginären Achse liegen, muss bestimmt werden. $(0 \leq N \leq n)$
+\item Beide Äste der Ortskurve von $G_0(j\omega)$ müssen gezeichnet werden.
+\item Umschlingt die Ortskurve den kritischen Punkt -1 genau N mal positiv (im
+Gegenuhrzeigersinn), dann ist der geschlossene Regelkreis 
+$\frac{Y(s)}{R(s)} = \frac{G_0}{1+G_0}$ asymptotisch stabil.
+\end{enumerate}
+Beispiel: $G_0(S)= K\cdot\frac{1}{s}\frac{1}{(s+1)^2}$
+Wegen des Integrators ist N = 1. Dies bedeutet, dass der kritische Punkt
+einmal im Gegenuhrzeigersinn umschlungen werden muss.\\
+\begin{tabularx}{\textwidth}{XXX}
+$K > 2$ & $Anzahl Umschlingungen: -1$ & Regelkreis instabil \\
+$2 > K > 0$ & Anzahl Umschlingungen: 1 & Regelkreis (asymptotisch) stabil\\
+$0 >K$ & Anzahl Umschlingungen: 0 & rightarrow Regelkreis instabil\\
+\end{tabularx}
+\subsection{Modellredution}
 
-
-\newpage
+Tendenziell versucht man bei einer Modellreduktion, die tieffrequenten Eigenschaften
+beizubehalten und dafür Ungenauigkeiten in den höheren Frequenzbereichen in
+Kauf zu nehmen. Beim Modell $G_M$ wird also am ehesten $T_2$ als vernachlässigbar
+klein betrachtet, womit sich folgendes reduzierte Modell $\overline{G}_M$ ergibt
+\[G_M(s)=K\cdot\frac{1}{1+T_1s}\cdot\frac{1}{1+2\xi T_2 s +T^2_2 s^2} \quad wird zu \quad \overline{G}_M(s)=K\cdot\frac{1}{1+T_1s}\]
