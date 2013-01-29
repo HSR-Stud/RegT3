@@ -237,10 +237,14 @@ Offensichtlich ist die freie Antwort $Y_{F}$ dann von Bedeutung, wenn man an gan
 Signalwerten interessiert ist, sonst wird der Fokus jedoch auf $Y_{E}$ gelegt. \\
 Die erzwungene Antwort $Y_{E}(s) = G(s) \cdot U(s)$ kann als Produkt geschrieben werden, wobei G(s) der Übertragungs-funktion entspricht.
 
-
+\subsubsection{minimalphasig}
+wenn keine Nullstelle $z_i$ in der rechten Halbebene liegt und die Totzeit $T_t = 0$ ist.
+Motivation für den Ausdruck ‘minimalphasig’: bei stabilen Systemen hat ein
+minimalphasiges System bei gegebenem Amplitudengang den minimal möglichen
+Phasenabfall im Phasengang.
 \subsubsection{Reaslisierbarkeit}
-mit m = 3 und n = 2 illustriert, dass UTF mit m > n differentierendes Verhalten
-aufweisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit m < n ist
+mit m = 3 und n = 2 illustriert, dass UTF mit $m > n$ differentierendes Verhalten
+aufweisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit $m < n$ ist
 ein Tiefpass. Systeme mit m $\leq$ n werden als realisierbar bezeichnet. Motiviert wird
 diese Bezeichnung dadurch, weil für ein Schrittsignal am Eingang ein P-Glied ideal
 funktionieren kann, ein D-Glied aber nicht. Praktisch bedeutet das, dass bei einem Regler nicht mehr Nullstellen als Pole
@@ -248,16 +252,28 @@ eingebaut werden dürfen.
 \subsubsection{Minimalität}
 
 Eine UTF mit Nennergrad n ist minimal, wenn keine Pol-Nullstellenkürzung
-möglich ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig.
+möglich ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig.\\
+keine Pol-/Nullstellenkürzung möglich ist. Zu beachten ist, dass Kürzungen in
+der rechten Halbebene normalerweise nicht erlaubt sind, da durch sie Instabilitäten
+in einem System unsichtbar werden.
 
 \subsubsection{Stabilität}
+\begin{itemize}
+\item  ist asymptotisch stabil, wenn
+alle Pole pi in der linken Halbebene liegen (ohne Imaginärachse).
+\item  ist grenzstabil, wenn
+\begin{itemize}
+\item kein Pol in der rechten Halbebene liegt und
+\item mindestens ein Pol auf der Imaginärachse liegt und
+\item alle Pole auf der Imaginärachse einfache Pole sind.
+\end{itemize}
+\item  ist instabil, wenn
+sie weder asymptotisch stabil noch grenzstabil ist.
+\item  ist stabil, wenn
+sie asymptotisch stabil ist.
+\end{itemize}
 
-Zusammenfassend zeigt sich, dass eine UTF G(s) genau dann asymptotisch stabil
-ist, wenn alle ihre Pole negativen Realteil haben — unabhängig davon, ob die Pole
-reell oder komplex sind und ob sie einfach oder mehrfach auftreten.\\
-Die UTF G(s) ist
-also genau dann grenzstabil, wenn sie mindestens einen Pol auf der Imaginärachse
-hat, aber keinen rechts davon und wenn die Pole auf der Imaginärachse einfach sind.
+
 \subsubsection{Stabilitätskriterien, Routh-Kriterium}
 
 Eine notwendige Stabilitätsbedingung für das charakteristische Polynom besteht darin, dass alle Koeffizienten positiv sind. (Vorzeichenbedingung)
@@ -308,17 +324,123 @@ Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit po
 \caption{Routh-Algorithmus}
 \end{table}
 
-
-
-\subsubsection{Minimalphasigkeit}
-
 \subsubsection{Dominaten Pole und Nullstellen}
 
+\begin{equation}
+\boxed{Y(s)=\frac{K}{s(sT+1)}=K\mathop{\Big[}\frac{1}{s}-\frac{1}{s+\frac{1}{T}}\mathop{\Big]} \laplace K\mathop{\Big[}1-e^{\frac{-1}{T}}\mathop{\Big]}=y(t)}
+\end{equation}
+		\begin{center}
+			\includegraphics[width=15cm]{./images/PoleNullstellen.png}
+		\end{center}
+um eine schnelle Reaktion der Strecke
+zu erreichen, sind grosse Werte am Reglerausgang nötig. Das bedeutet, dass man
+T nicht beliebig klein machen kann, bzw. den Pol $p_1$ nicht beliebig weit nach links
+legen darf.\\
+
+Das $PT_2$-Glied hat eine UTF mit den drei Parametern K, $\xi$ und T (bzw. $\omega$ n = 1/T ).
+\begin{equation}
+\boxed{\frac{Y(s)}{R(s)}=G(s)=\frac{K}{s^2T^2+2\xi Ts+1}=\frac{K\omega^{2}_{n}}{s^2 + 2\xi \omega_{n}s+\omega^{2}_{n}}}
+\end{equation}
+\begin{itemize}
+\item Modifikation
+von K verändert die Höhe der Schrittantwort durch Strecken/Stauchen in
+vertikaler Richtung. (Signalwerte)
+\item Modifikation von T (bzw. $\omega n$) verändert
+die Schrittantwort durch Strecken/Stauchen in horizontaler Richtung. (Zeit)
+\item Abhängig von $\xi$ ergeben sich folgende Fälle:
+\begin{itemize}
+\item Fall mit $\xi$ < 0
+Da T als positiv angenommen wird, ergibt sich für $\xi$ < 0 gemäss Vorzeichenbedingung
+ein instabiles System.
+\item Fall mit $\xi$ = 0
+Dies ergibt einen harmonischen Oszillator; die Pole liegen bei $\pm j\omega_{n}$.
+NB: die Periode der Oszillation entspricht nicht der Zeitkonstanten T.
+\item Fall mit $ 0 < \xi < 1$
+Hier resultiert ebenfalls eine Schwingung mit einer Periode; allerdings ist
+die Schwingung gedämpft. Dieser Fall wird unten genauer betrachtet.
+\item Fall mit $1 \leq \xi$
+Dies entspricht dem aperiodischen Fall. Für (35) ist eine Faktorisierung
+mit reellen Werten T1,2 möglich:
+Für $\xi$ = 1 ist T1 = T2 = T; das $PT_2$-Glied entspricht der Serieschaltung
+zweier identischer PT1-Glieder.
+Für $\xi$ > 1 ist $T_1 > T > T_2$; das $PT_2$-Glied entspricht der Serieschaltung
+zweier unterschiedlicher PT1-Glieder.
+Für $\xi \gg 0$ wird mit $T_1 \gg T_2$ die Zeitkonstante T1 dominant. Das $PT_2$-
+Glied verhält sich ähnlich wie ein $PT_1$-Glied
+\end{itemize}
+\end{itemize}
+
+\[p_{1,2}=\frac{-2\xi\omega_n \pm \sqrt{4\xi^2 \omega^2_n - 4\omega^2_n}}{2}=\underbrace{-\xi\omega_n} \pm \underbrace{\sqrt{\xi^2-1}\cdot \omega_n}\]
+\textcolor{white}{x} \hspace{10.5cm} $\sigma$ 
+\hspace{1.5cm} $j\omega$
+\begin{eqnarray}
+\sigma=-\xi\omega_n \quad und \quad \omega=\sqrt{1-\xi^2}\cdot \omega_n  \quad bzw. \\ \omega_n=\sqrt{\omega^2 + \sigma^2}  \quad und  \quad \xi = -\frac{\sigma}{\omega_n}=-\frac{\sigma}{\sqrt{\omega^2 + \sigma^2}}\label{xiOmega}
+\end{eqnarray}
+
+Die Schrittantwort eines $PT_2$-Glieds mit $|\xi| < 1$ ergibt
+\begin{equation}
+\boxed{Y(s)=\frac{K\omega^2_n}{s(s^2+2\xi\omega_n s +\omega^2_n)}\laplace K\mathop{\Big[}1-e^{\sigma t}\mathop{\Big[}cos(\omega t)-\frac{\sigma}{\omega}sin(\omega t)\mathop{\Big]}\mathop{\Big]}=y(t)}
+\end{equation}
+\begin{multicols}{2}
+\begin{itemize}
+\item K ergibt sich durch $y_\infty$.
+\item $\omega$ ergibt sich durch die Periode $T_\omega$ = 2$\pi$/$\omega$ [= $2T_m$].
+\item $\sigma$ ergibt sich durch die Überschwingweite ym aus der Formel $y_m/y_\infty = e^{
+\frac{\sigma}{\omega}\pi}$.
+\item $\omega$n und $\xi$ ergeben sich gemäss (\ref{xiOmega}) aus $\omega$ und $\sigma$.
+\end{itemize}
+	\columnbreak
+\begin{center}
+	\includegraphics[width=6cm]{./images/pt2.png}
+\end{center}
+\end{multicols}
+
+\subsubsection{Minimalphasigkeit}
+Gegenüber den Polen werden die Nullstellen oft etwas vernachlässigt. Trotzdem
+gibt es auch Fälle, in denen durch ungünstige Lage von Nullstellen regelungstechnische
+Probleme erschwert werden. Beispiele sind Nullstellen in der rechten Halbebene,
+durch die ein System nichtminimalphasig wird.
 \subsubsection{Totzeit, Padé-Approximation}
+\begin{equation}
+\boxed{e^{-sT_t}=e^x\mathop\mid\limits{_{x=-sT_t}} \quad mit \quad e^x\approx 1 \approx \frac{2+x}{2-x} \approx \frac{12+6x+x^2}{12-6x+x^2} \approx \ldots}
+\end{equation}
+\begin{itemize}
+\item  Sie ist stabil, unabhängig von der Ordnung.
+\item  Die Nullstellen der Approximation entsprechen — an der Imaginärachse der
+komplexen Ebene gespiegelt — den Polen. Beim Ersetzen eines Totzeitglieds
+bleibt damit die Allpasseigenschaft erhalten mit $|G(j\omega)| = 1$. Weiter bleibt
+auch die Nichtminimalphasigkeit erhalten.
+\item  Ihr Phasengang konvergiert mit zunehmender Ordnung gegen denjenigen des
+Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
+\end{itemize}
 
-\subsubsection{Übersicht der Eigenschaften von UTF}
+\subsection{Blockdiagramm Algebra}
+\begin{center}
+	\includegraphics[width=16cm]{./images/blockdiagrammAlgebra.png}
+\end{center}
+\begin{itemize}
+\item Zwei Blöcke hintereinander 
+\begin{itemize}
+	\item $U(s) \longrightarrow G_1(s)\longrightarrow G_2(s) \longrightarrow Y(s) \quad ergibt  \quad G(s)=G_1(s)\cdot G_2(s)$
+	\item $Y(s) = G(s)=G_1(s)\cdot G_2(s) \cdot U(s)$
+\end{itemize}
+\item Zwei Blöcke Parallel
+\begin{itemize}
+	\item $G(s) = G_1(s) + G_2(s)$
+	\item $Y_1(s) = G_1(s)\cdot U(s), Y_2(s) = G_2(s)\cdot U(s) \quad und \quad  Y(s) = Y_1(s)+ Y_2(s)$
+	\item ergibt: $Y(s)= (G_s(s)+G_2(s))\cdot U(s)$
+\end{itemize}
 
-\subsection{Blockdiagramm Arithmetik}
+\item Kreisschaltung
+\begin{itemize}
+	\item $G(s) = \frac{G_1(s)}{1\pm G_1(s)\cdot G_2(s)}$
+	\item $Y(s) = \frac{G_1(s)}{1\pm G_1(s)\cdot G_2(s)} \cdot U(s)$
+\end{itemize}
+\end{itemize}
+\begin{center}
+\includegraphics[width=8cm]{./images/blockdiagrammAlgebra2.png}
+\end{center}
+
 
 \subsection{Bodediagramm und Nyquistdiagramm}
 
