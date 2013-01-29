@@ -1,6 +1,130 @@
 \section{Reglerentwurf mit Wurzelortskurven (WOK)}
+Wurzelortskurven beschreiben die Pole linearer Systeme in Abhängigkeit von freien
+Parametern.
+\begin{itemize}
+	\item Bei einer
+	infinitesimal kleinen Änderung eines Parameters ändern die Pole auch nur infinitesimal.
+	\item Wenn die n Pole eines Systems nter Ordnung für alle Parameterwerte aufgezeichnet
+	werden, erscheint die Gesamtheit der Pole deshalb als n Kurven (Äste).
+	\item Diese n Äste entsprechen den geometrischen Orten der Wurzeln in der komplexen
+	Ebene
+	\item Mithilfe der WOK kann z.B. abgeschätzt werden,
+	\begin{itemize}
+	\item ob es Parameterwerte gibt, die zu einem stabilen System führen,
+	\item wie gross man den freien Parameter wählen/einstellen muss,
+	\item welche Dämpfungen man dabei erreichen kann.
+\end{itemize}
+\end{itemize}
+
 
 \subsection{Zeichnen der Wurzelortskurven}
+\begin{equation}
+G_f(s)=\frac{KG(s)}{1+KG(s)}=\frac{K\frac{Z(s)}{N(s)}}{1+K\frac{Z(s)}{N(s)}}=\frac{KZ(s)}{\underbrace{N(s)+KZ(s)}}=\frac{Z_f(s)}{N_f(s)}
+\end{equation}
+\textcolor{white}{x} \hspace{9cm} charakteristisches Polynom $N_f(s)$ 
+
+\begin{multicols}{2}
+	\begin{flushleft}
+		\includegraphics[width=9cm]{./images/StandardRegelkreisWOK.png}
+	\end{flushleft}
+\columnbreak
+	\begin{flushleft}
+		Beispiel: $G=\frac{1}{s-5} \quad G_f=\frac{K}{s-5+K}$ \includegraphics[width=4cm]{./images/beispielWOK.png}\\ Das charakteristische Polynom s - 5 + K zeigt eine
+		Wurzel bzw. einen Pol bei s = 5 - K.
+	\end{flushleft}
+\end{multicols}
+
+\subsubsection{Voraussetzungen und Vereinbarungen}
+\begin{itemize}
+\item  Die UTF $G(s)=\frac{Z(s)}{N(s)}=\frac{s^m + b_{m-1}s^{m-1}+ ... + b_{1}s+b_{0}}{s^{n}+a_{n-1}s^{n-1} + ... + a_{2}s^{2}+a_{1}s + a_{0}}$
+ist eine gebrochen rationale
+Funktion in s mit monischen Polynomen (normierte führende Koeffizienten).
+\item  In G(s) ist der Nennergrad n mindestens so gross wie der Zählergrad m; $n \neq m$.
+\item  Hat die zu untersuchende UTF eine zusätzliche Totzeit $e^{-sT_t}$ , so kann diese
+z.B. mit der Padé-Approximation in die gewünschte Form gebracht werden.
+\item  Hat die zu untersuchende UTF eine zusätzliche Verstärkung $k_0$, so kann diese
+als Teil (d.h. als Faktor) von K betrachtet werden.
+\item  Die WOK werden gezeichnet bezogen auf positive Verstärkungen K. Zu beachten
+ist, dass K eine allfällig vorhandene Verstärkung k0 beinhaltet.
+\end{itemize}
+
+\subsubsection{Grundsätzliches Aussehen der WOK}
+\begin{itemize}
+\item  Das charakteristische Polynom $N_f (s) = N(s)+K \cdot Z(s)$ hat für jeden K-Wert
+n Wurzeln. Visualisiert man die Wurzeln für alle positiven K-Werte, dann
+ergeben sich n kontinuierliche Linien (Äste).
+\item  Da Pole immer reell oder (paarweise) komplex-konjugiert sind, ist das Gesamtbild
+der WOK immer symmetrisch bezüglich der reellen Achse.
+\item  Für K = 0 sind die n Wurzeln von $N_f(s)$ und N(s) identisch und entsprechen
+den n Polen von G(s).
+Für $K \rightarrow \infty$ streben m der Wurzeln von $N_f(s)$ zu den Wurzeln von Z(s). Die
+restlichen n-mWurzeln von Nf (s) streben entlang von Geraden asymptotisch
+ins ‘Unendliche’.
+Damit teilen sich die n Äste auf in zwei Arten:
+\begin{enumerate}
+\item m Äste, die von m Polen von G(s) zu den m Nullstellen von G(s) gehen
+\item n - m Äste, die von n - m Polen von G(s) ins Unendliche laufen.
+\end{enumerate}
+\end{itemize}
+
+\subsubsection{Regeln zum Zeichnen der WOK}
+\begin{enumerate}
+\item Pol-/Nullstellen-Plan:\\
+Die Pole $p_k (k = 1...n)$ von G(s) werden als x in der komplexen Ebene eingezeichnet;
+dies sind die Startpunkte aller n Äste. Die Nullstellen $z_k (k = 1...m)$
+werden als o eingezeichnet; dies sind die Endpunkte von m Ästen.
+\item Reelle Achse:\\
+Diejenigen Punkte der reellen Achse welche zu den WOK gehören, haben rechts
+von sich auf der reellen Achse eine ungerade Anzahl von Polen und Nullstellen.
+Um diese Punkte einzuzeichnen, kann man von ‘genug weit’ rechts startend
+der reellen Achse entlang ‘genug weit’ nach links fahren. Dabei wechselt der
+Zeichenstift bei jedem Pol und bei jeder Nullstelle den Status zwischen ‘nicht
+zeichnend’ bzw. ‘zeichnend’. Der Anfangsstatus ist ‘nicht zeichnend’.
+\begin{figure}[h!]
+\includegraphics[width=12cm]{./images/reelleAchsePoleNullWOK.png}
+\caption{Zur WOK gehörende Teile der reellen Achse}
+\label{beispielAchse}
+\end{figure}
+
+Im etwas komplexeren Beispiel von Abb.\ref{beispielAchse} entstehen 6 Striche. Einer davon
+ist nur ein Punkt: beim Doppelpol $p_4 = p_5$. Einer der Striche verschwindet
+gegen links im Unendlichen. Zwei Striche verbinden Pol mit Nullstelle; dies
+sind gültige WOK-Äste. An den mit ? versehenen Stellen ist offensichtlich die
+Situation noch unbefriedigend.
+
+
+\item Asymptoten: Schnittpunkt und Richtungen:\\
+Wenn $n > m$ gilt, dann streben n-m Äste der WOK asymptotisch gegen
+Unendlich. Die n-m Asymptoten sind Geraden. Sie schneiden sich im Punkt
+\begin{multicols}{2}
+		\includegraphics[width=10cm]{./images/asymptotenrichtunge.png}
+Abbildung \ref{Asymptotenrichtungen}: Asymptotenrichtungen bei WOK für die Fälle n - m = 1, 2, 3
+		\label{Asymptotenrichtungen}
+\columnbreak
+	\begin{flushright}
+		\[\boxed{\sigma_A=\frac{\sum\limits_{k=1}^{n} Re(p_k)-\sum\limits_{k=1}^{m} Re(z_k)}{n-m}}\]
+	\end{flushright}
+\end{multicols}
+Eine der Asymptoten zeigt in die Richtung $\phi = \frac{\pi}{n-m}$. Die weiteren Asymptoten
+sind dann gleichmässig um den Winkel $\frac{2\pi}{n-m}$ versetzt,
+\item Verzweigungspunkte, Vereinigungspunkte:\\
+In Abb. \ref{Asymptotenrichtungen} fehlt noch eine Erklärung zu den mit ? versehenen Stellen. Treffen
+beispielsweise zwei Äste, von Polen her kommend, aufeinander, dann verzweigt
+sich die WOK. Beim Verzweigungspunkt treten die Äste (meistens) rechtwinklig
+aus der reellen Achse aus. Entsprechend können auch zwei Äste im rechten
+Winkel auf die reelle Achse zustreben und nach dem Vereinigungspunkt auf
+dieser weiterlaufen.\\
+In Abb. \ref{KomplettWOK} ist die Skizze der WOK aus Abb. \ref{beispielAchse}
+komplettiert: $\sigma_{V,1}$ ist dabei ein Vereinigungspunkt, $\sigma_{V,2}$ und $\sigma_{V,3}$ sind zwei
+Verzweigungspunkte. $\sigma_{V,1}$ und $\sigma_{V,2}$ sind näherungsweise mit zwei Kreisbögen
+verbunden. Da n-m = 3 gilt, entstehen drei Asymptoten, deren Schnittpunkt
+bei $\sigma_A$ liegt.
+\end{enumerate}
+\begin{figure}[h!]
+\includegraphics[width=10cm]{./images/KomplettWOK.png}
+\caption{Komplettierte Skizze der WOK zu Abb: \ref{beispielAchse}}
+\label{KomplettWOK}
+\end{figure}
 
 \subsection{Interpretation der Wurzelortskurven}
 
