@@ -59,7 +59,7 @@
  			\hline
        	\end{tabularx}
 \newpage
-	\subsection{Laplace-Tabelle}
+	\subsubsection{Laplace-Tabelle}
 	\begin{multicols}{2}
 		\begin{center}
 			\begin{tabular}{|lcc|}
@@ -131,8 +131,8 @@ an den physikalischen Grössen bleibt
 \begin{center}
 	\begin{tabular}{ll}
 		$i(t) = C \cdot \dot{u}_{C}(t)$ & Kapazität  \\
-		$uL(t) = L \cdot \dot{i}(t)$ & Induktivität \\
-		$uR(t) = R \cdot i(t)$ & Widerstand \\
+		$u_{L}(t) = L \cdot \dot{i}(t)$ & Induktivität \\
+		$u_{R}(t) = R \cdot i(t)$ & Widerstand \\
 		$u(t) = u_{C}(t) + u_{R}(t) + u_{L}(t)$ & Maschengleichung, links \\
 		$y(t) = u_{R}(t) + u_{L}(t)$ & Maschengleichung, rechts \\
 	\end{tabular}
@@ -155,7 +155,71 @@ $Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{
 
 Auch hier beinhaltet das Gleichungssystem 5 Gleichungen und 6 Signale. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt hier leichter. Offensichtlich sind hier weniger Anfangsbedingungen nötig als wenn nur eine Gleichung in den Bildbereich transformiert wird.
 
-\subsection{Übertragungsfunktion UTF}
+
+\subsection{Partialbruchzerlegung (PBZ)}
+\subsubsection{Allgemeines Vorgehen}			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30} \Rightarrow \; \Rightarrow x^{3}+4x^{2}-11x-30=(x+2)(x^{2}+2x-15)=(8x+2)(x+5)(x-3)\]
+			Ansatz:
+			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30}=\frac{A}{x-3} + \frac{B}{x+2} + \frac{C}{x+5}=
+			\frac{A(x+2)(x+5)+B(x-3)(x+5)+C(x-3)(x+2)}{(x-3)(x+2)(x+5)}\]
+			Gleichungssystem \textbf{(Z"ahler gleichsetzen)} aufstellen mit beliebigen $x_i$-Werten (am Besten Polstellen oder 0,1,-1 w"ahlen):
+			\[\begin{array}{l}x_1=3:\;-9+60+149=A\cdot5\cdot8\;\;\;\Rightarrow A=5\\
+			x_2=-2:\;-4-40+149=B(-5)\cdot3\; \Rightarrow B=-7\\
+			x_3=-5:\;-25-100+149=C(-8)(-3) \Rightarrow C=1 \end{array} \Rightarrow f(x)=\frac{5}{x-3}+\frac{7}{x+2} + \frac{1}{x+5}\]
+%			weitere Ans"atze f"ur andere Typen von Termen: (Mehrere Werte f"ur $x$ verwenden, auch wenn kein Koeffizient 0 wird.)
+%			\[f(x)=\frac{5x^2-37x+54}{x^3-6x^2+9x}=\frac{A}{x}+\frac{B}{x-3}+\frac{C}{(x-3)^2}=\frac{A(x-3)^2+Bx(x-3)+Cx}{x(x-3)^2}\]
+%			\[f(x)=\frac{1,5x}{x^3-6x^2+12x-8}=\frac{A}{x-2}+\frac{B}{(x-2)^2}+\frac{C}{(x-2)^3}=\frac{A(x-2)^2+B(x-2)+C}{(x-2)^3}\]
+%			\[f(x)=\frac{x^2-1}{x^3+2x^2-2x-12}=\frac{A}{x-2}+\frac{Bx+C}{x^2+4x+6}=\frac{A(x^2+4x+6)+(Bx+C)(x-2)}{(x-2)(x^2+4x+6)}\]
+\subsubsection{Bedingungen}
+\begin{itemize}
+\item Bedingung 1: In der gezeigten Form kann die PBZ nur durchgeführt werden,
+wenn die Pole paarweise verschieden sind: $p_{i} \neq p_{j}$ falls i $\neq$ j.
+\item Bedingung 2: In der gezeigten Form kann die PBZ nur durchgeführt werden, wenn m < n. Die Schrittantwort des Systems ist dann stetig.
+\item Bei komplex-konjugierten Polen $p_{j} = p^{\ast}_{i}$ ergeben sich komplex-konjugierte Faktoren
+$c_{j} = c^{\ast}_{i}$ . Werden die entsprechenden zwei Terme addiert, ergeben sich
+für die Summe reelle Koeffizienten (PT2-Glied):
+\end{itemize}
+\subsubsection{Standardfall}
+
+\[ G(s) =\frac{c_{1}}{s+3} + \frac{c_{2}}{s+5} + \frac{c_{3}}{s+7} \quad \text{ mit } \quad {c_{i}= \frac{Z(s)}{\frac{dN(s)}{ds}}\mathop{\Bigg|}\limits_{s=p_{i}}}\]
+
+Beispiel: \[\frac{22s +35}{(s+1)(s+2)}=\frac{c_{1}}{s+1}+\frac{c_{2}}{s+2}=\frac{\frac{22s+35}{2s+3}\mathop{\Big|}\limits_{s=-1}}{s+1}+\frac{\frac{22s+35}{2s+3}\mathop{\Big|}\limits_{s=-2}}{s+2}=\frac{13}{s+1}+\frac{9}{s+2}\]
+kann durch PBZ in drei parallel geschaltete PT1-Glieder umgeformt werden. Die
+Faktorisierung ist dabei nur beim Nenner nötig.
+
+\subsubsection{Nichtminimale Übertragungsfunktion}
+\[G(s) =\frac{8s^{2} + 80s + 200}{s^3 + 15s^2 + 71s + 105}= \frac{4}{s+3} + \frac{0}{s+5} + \frac{4}{s+7}\]
+Die in (27) gegebene UTF scheint zwar ein System dritter Ordnung zu sein; die beiden
+folgenden Darstellungen zeigen aber, dass das I/O-Verhalten nur einem System
+zweiter Ordnung entspricht. In der faktorisierten Form äussert sich dies durch
+eine Pol-/Nullstellenkürzung; in der PBZ ist der entsprechende Koeffizient $c_{2}$ = 0.
+Die UTF in ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst
+minimal.
+
+\subsubsection{Übertragungsfunktion mit komplexen Polen}
+\[G(s) =\frac{8s^{2} + 70s + 134}{s^3 + 15s^2 + 81s + 175}= \frac{8s^2+70s+134}{(s+7)(s+4+3j)(s+4-3j)}=\frac{2}{s+7}+\underbrace{\frac{3+2j}{s+4-3j}+\frac{3-2j}{s+4+3j}}\]
+\textcolor{white}{x} \hspace{14.5cm} $\frac{6s+12}{s'2+8s+25}$\\
+
+Grundsätzlich kann G(s) wieder als Parallelschaltung dreier PT1-Glieder aufgefasst
+werden. Glieder mit komplexen Werte für Verstärkung und Zeitkonstante werden
+üblicherweise aber zu Teilsystemen zweiter Ordnung zusammengefasst.
+
+\subsubsection{Fall m $>$ n}
+UTF mit m $>$ n haben bei hohen Frequenzen differentierendes Verhalten, mit m = n
+haben sie bei hohen Frequenzen Proportionalverhalten. Um solche UTF in eine
+parallele Form zu bringen, kann mit einer Polynomdivision gearbeitet werden. Die Polynomdivision wird abgebrochen, bevor negative s-Potenzen entstehen. Terme mit nicht-negativen s-Potenzen haben proportionales
+bzw. differentierendes Übertragungsverhalten; bei höheren s-Potenzen träte auch
+mehrfache Differentiation auf. Wenn ein übrig bleibt, so kann dieser mit PBZ weiter zerlegt werden.
+
+\subsection{Darstellung und Eigenschaften von UTF}
+
+\begin{eqnarray}
+G(s)=\frac{Z(s)}{N(s)}=\frac{b_{m}s^m + b_{m-1}s^{m-1}+ ... + b_{1}s+b_{0}}{s^{n}+a_{n-1}s^{n-1} + ... + a_{2}s^{2}+a_{1}s + a_{0}} \\ = K\cdot \frac{(s-z_{1})(s-z_{2})...(s-z_{m})}{(s-p_{1})(s-p_{2})...(s-p_{n})} \\ = \frac{c_{1}}{s-p_{1}} + \frac{c_{2}}{s-p_{2}} + ...  + \frac{c_{n}}{s-p_{n}}
+\end{eqnarray}
+
+\begin{equation}
+K=b_{m}
+\end{equation}
+\subsubsection{Übertragungsfunktion UTF}
 \hspace{2.3cm}G(s)\\
 $Y(s) = \underbrace{\frac{\overbrace{s^2 LC+sRC}}{s^2 LC +sRC +1}\cdot U(s)} + \underbrace{\frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}}$ \newline
 \textcolor{white}{x} \hspace{2.4cm} $Y_{E}(s)$ \hspace{3.8cm} $Y_{F}(s)$ \\
@@ -171,29 +235,94 @@ $\text{für} u_{C}(0) \neq 0 \text{ und } \diagup \text{ oder } i_{L}(0) \neq 0$
 \end{itemize}
 Offensichtlich ist die freie Antwort $Y_{F}$ dann von Bedeutung, wenn man an ganz konkreten
 Signalwerten interessiert ist, sonst wird der Fokus jedoch auf $Y_{E}$ gelegt. \\
-Die erzwungene Antwort $Y_{E}(s) = G(s) \cdot U(s)$ kann als Produkt geschrieben werden,
-wobei G(s) der Übertragungsfunktion entspricht.
+Die erzwungene Antwort $Y_{E}(s) = G(s) \cdot U(s)$ kann als Produkt geschrieben werden, wobei G(s) der Übertragungs-funktion entspricht.
 
-\subsection{Darstellung und Eigenschaften von UTF}
 
-\subsection{Partialbruchzerlegung (PBZ)}
+\subsubsection{Reaslisierbarkeit}
+mit m = 3 und n = 2 illustriert, dass UTF mit m > n differentierendes Verhalten
+aufweisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit m < n ist
+ein Tiefpass. Systeme mit m $\leq$ n werden als realisierbar bezeichnet. Motiviert wird
+diese Bezeichnung dadurch, weil für ein Schrittsignal am Eingang ein P-Glied ideal
+funktionieren kann, ein D-Glied aber nicht. Praktisch bedeutet das, dass bei einem Regler nicht mehr Nullstellen als Pole
+eingebaut werden dürfen.
+\subsubsection{Minimalität}
 
-\subsection{Reaslisierbarkeit}
+Eine UTF mit Nennergrad n ist minimal, wenn keine Pol-Nullstellenkürzung
+möglich ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig.
 
-\subsection{Minimalität}
+\subsubsection{Stabilität}
 
-\subsection{Stabilität}
+Zusammenfassend zeigt sich, dass eine UTF G(s) genau dann asymptotisch stabil
+ist, wenn alle ihre Pole negativen Realteil haben — unabhängig davon, ob die Pole
+reell oder komplex sind und ob sie einfach oder mehrfach auftreten.\\
+Die UTF G(s) ist
+also genau dann grenzstabil, wenn sie mindestens einen Pol auf der Imaginärachse
+hat, aber keinen rechts davon und wenn die Pole auf der Imaginärachse einfach sind.
+\subsubsection{Stabilitätskriterien, Routh-Kriterium}
 
-\subsection{Dominaten Pole und Nullstellen}
+Eine notwendige Stabilitätsbedingung für das charakteristische Polynom besteht darin, dass alle Koeffizienten positiv sind. (Vorzeichenbedingung)
+\begin{equation}
+\boxed{N(s) = a_{n}s^n + a_{n-1}s^{n-1} + . . . + a_2s^2 + a_1s + a_0 mit an > 0}
+\end{equation}
+Sind bei einem Polynom alle Koeffizienten negativ (inklusive $a_n$), ist die obige
+notwendige Bedingung sinngemäss ebenfalls erfüllt.
 
-\subsection{Totzeit, Padé-Approximation}
 
-\subsection{Übersicht der Eigenschaften von UTF}
+
+Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit positiven Koeffizienten auch das Routh Kriterium erfüllt sein.
+\begin{itemize}
+	\item Die Tabelle hat n + 1 Zeilen mit den Indizes n . . . 0.
+	\item In die beiden oberen Zeilen werden die Koeffizienten ai gefüllt. Je nach Systemordnung
+	kommt dabei der letzte Koeffizient a0 in die erste oder zweite Zeile.
+	
+	\item {Jede der weiteren Zeilen der Tabelle ergibt sich durch algebraisches Rechnen
+	mit den Einträgen der zwei darüber liegenden Zeilen. Das Muster der Berechnung
+	wiederholt sich dabei in jeder Zeile.\\
+	\begin{tabularx}{\textwidth}{XXX}
+	$b_1=\frac{a_{n-1}a_{n-2}-a_{n}a_{n-3}}{a_{n-1}}$
+	& $b_2=\frac{a_{n-1}a_{n-4}-a_{n}a_{n-5}}{a_{n-1}}$
+	& $b_3=\ldots$ \\
+	$c_1=\frac{b_{1}a_{n-3}-a_{n-1}b_{2}}{b_{1}}$
+	& $c_1=\frac{b_{1}a_{n-5}-a_{n-1}b_{3}}{b_{1}}$
+	& $c_3=\ldots$ \\
+	$d_1=\frac{c_{1}b_{2}-b_{1}c_{2}}{c_{1}}$
+	& $d_2=\ldots$ & \\
+	\end{tabularx}}
+	\item Durch dieses Vorgehen ergibt sich eine Dreiecksstruktur; die Tabelle endet mit
+	genau einem Eintrag in Zeile 0.
+	\item Die Auswertung der Tabelle besteht durch Inspektion der (grau unterlegten)
+	ersten Kolonne: dass alle Koeffizienten dieser Kolonne positiv sind, ist eine
+	notwendige und hinreichende Bedingung für (asymptotische) Stabilität.
+\end{itemize}
+\begin{table}
+	\begin{tabularx}{0.6\textwidth}{|X||X|X|X|X|X|X|}
+	\hline
+		n & \cellcolor{hellgrau}$a_n$ & $a_{n-2}$ & $a_{n-4}$ & $\ddots\vdots$ & $a_{2}$  & $a_{0}$ \\ \hline
+		n-1 & \cellcolor{hellgrau} $a_{n-1}$ & $a_{n-3}$ & $a_{n-5}$ & $\vdots\ddots$ & $a_{1}$  & 0 \\ \hline\hline
+		n-2 & \cellcolor{hellgrau} $b_{1}$ & $b_{2}$ & $b_{3}$ & $\cdots$ & $b_{n/2}$  & 0 \\ \hline
+		n-3 & \cellcolor{hellgrau} $c_{1}$ & $c_{2}$ & $\cdots$ & $c_{(n-2)/2}$ & 0 & 0 \\ \hline
+		n-4 & \cellcolor{hellgrau} $d_{1}$ & $\ddots$ & $\ddots$ & $\ddots$ & 0 & 0 \\ \hline
+		$\vdots$ & \cellcolor{hellgrau} $\vdots$ &  $\ddots$ & $\ddots$ & $\ddots$ & 0 & 0 \\ \hline
+		0 & \cellcolor{hellgrau} $x_1$ & 0 & 0 & 0 & 0 & 0 \\ \hline
+	\end{tabularx}
+\caption{Routh-Algorithmus}
+\end{table}
+
+
+
+\subsubsection{Minimalphasigkeit}
+
+\subsubsection{Dominaten Pole und Nullstellen}
+
+\subsubsection{Totzeit, Padé-Approximation}
+
+\subsubsection{Übersicht der Eigenschaften von UTF}
 
 \subsection{Blockdiagramm Arithmetik}
+
+\subsection{Bodediagramm und Nyquistdiagramm}
 
 \subsection{Stabilität allgemeines Nyquistkriterium}
 
 
-
-
+\newpage
