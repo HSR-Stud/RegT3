@@ -107,7 +107,12 @@ Abbildung \ref{Asymptotenrichtungen}: Asymptotenrichtungen bei WOK für die Fäl
 \end{multicols}
 Eine der Asymptoten zeigt in die Richtung $\phi = \frac{\pi}{n-m}$. Die weiteren Asymptoten
 sind dann gleichmässig um den Winkel $\frac{2\pi}{n-m}$ versetzt,
-\item Verzweigungspunkte, Vereinigungspunkte:\\
+
+
+\begin{figure}[h!]
+	\begin{center}
+	\begin{subfigure}[b]{7.5cm}
+\item 4. Verzweigungspunkte, Vereinigungspunkte:\\ %nicht sauber
 In Abb. \ref{Asymptotenrichtungen} fehlt noch eine Erklärung zu den mit ? versehenen Stellen. Treffen
 beispielsweise zwei Äste, von Polen her kommend, aufeinander, dann verzweigt
 sich die WOK. Beim Verzweigungspunkt treten die Äste (meistens) rechtwinklig
@@ -119,18 +124,72 @@ komplettiert: $\sigma_{V,1}$ ist dabei ein Vereinigungspunkt, $\sigma_{V,2}$ und
 Verzweigungspunkte. $\sigma_{V,1}$ und $\sigma_{V,2}$ sind näherungsweise mit zwei Kreisbögen
 verbunden. Da n-m = 3 gilt, entstehen drei Asymptoten, deren Schnittpunkt
 bei $\sigma_A$ liegt.
-\end{enumerate}
-\begin{figure}[h!]
-\includegraphics[width=10cm]{./images/KomplettWOK.png}
-\caption{Komplettierte Skizze der WOK zu Abb: \ref{beispielAchse}}
-\label{KomplettWOK}
+		\includegraphics[width=7.5cm]{./images/KomplettWOK.png}
+		\caption{Komplettierte Skizze der WOK zu Abb: \ref{beispielAchse}}
+		\label{KomplettWOK}
+	\end{subfigure}\qquad
+	\begin{subfigure}[b]{10.5cm}
+		\centering
+		\includegraphics[width=10.5cm]{./images/BilderWOK.png}
+		\caption{WOK zu einigen geläufigen Pol-/Nullstellenverteilungen, Quelle}
+	\end{subfigure}
+	\end{center}
 \end{figure}
+\end{enumerate}
 
 \subsection{Interpretation der Wurzelortskurven}
 
 \subsubsection{Auslegen eines P-Reglers mithilfe der WOK}
+\begin{figure}[h!]
+	\begin{subfigure}[b]{8.5cm}
+Beispiel: Eine Strecke \[G_s(s)=\frac{5}{s^2 + 6s +8}=\frac{5}{(s+2)(s+4)}\] soll mit einem P-Regler mit
+ möglichst grosser Verstärkung $K_R$ geregelt werden, wobei alle Pole eine minimale
+ Dämpfung $\xi = 0.7$ haben sollen.\\
+Lösung: \[G_0=K_R\cdot\frac{5}{\underbrace{(s+2)(s+4)}}=\underbrace{K_r\cdot 5} \cdot\frac{1}{\underbrace{(s+2)(s+4)}}\]
+\vspace{-0.5cm}\\
+\textcolor{white}{x} \hspace{1.75cm} $G_s(s)$ \hspace{1.45cm} K  \hspace{1.1cm} G(s)\\
+
+	\end{subfigure}\qquad
+	\begin{subfigure}[b]{10cm}
+		\includegraphics[width=7cm]{./images/PReglerBeispielWOK1.png}
+		\includegraphics[width=10cm]{./images/PReglerBeispielWOK2.png}
+	\end{subfigure}
+\end{figure}
+
+\begin{multicols}{2}
+Zusammenfassung des Vorgehens:
+
+\begin{eqnarray}
+	K=\frac{\prod_{i=1}^{n} \theta_i}{\prod_{i=1}^{m} \lambda_i}=\frac{\theta_1\theta_2\wedge\cdots\theta_n}{\lambda_1\lambda_2\wedge\cdots\lambda_m}\\
+\end{eqnarray}
+\columnbreak
+\begin{itemize}
+	\item  Links: Die WOK-Äste treffen sich bei -3 und laufen vertikal weiter.
+	\item  Mitte: Die Dämpfung nimmt mit steigendem Wert von K (bzw. $K_R$) ab; die
+	Pole kommen auf die Schnittpunkte der WOK mit den Winkelhalbierenden.
+	\item  Rechts: Um den Wert K (bzw. $K_R$) zu bestimmen, muss einer der plazierten
+	Pole betrachtet werden. Der Wert von K berechnet sich aus den Abständen $\theta_i$ dieses Pols zu den Polen von G(s) und den Abständen $\lambda_i$ dieses Pols zu den
+	Nullstellen von G(s): Im konkreten Beispiel hat es keine Nullstellen, womit das entsprechende Produkt
+	gleich Eins wird. 	$K=\theta_1\theta_2$ mit $\theta_1=\theta_2=\sqrt{3^2+1^2}$
+\end{itemize}
+
+\end{multicols}
+
 
 \subsubsection{Auslegen dynamischer Regler mithilfe der WOK}
 
-\subsubsection{Allgemeine Stabilitätsanalyse mithilfe der WOK}
 
+\subsubsection{Allgemeine Stabilitätsanalyse mithilfe der WOK}
+Der Regelkreis $K\cdot G_s(S)=K\cdot\frac{1}{S^2+\alpha s + 2}$ mit den zwei Parametern K und $\alpha$ hat das charakteristische
+Polynom $N_f(s)=N(s) + K\cdot Z(s) = s2 + \alpha s + (2 + K)$. Denkt man sich jeweils einen der
+Parameter als fix gegeben, kann mithilfe der WOK der Einfluss des anderen Parameters
+auf die Pollage des geschlossenen Regelkreises untersucht werden:
+
+Fall 1, $\alpha$ fix, K variabel
+Dies entspricht dem bisher besprochenen Vorgehen, bei dem die Kreisverstärkung
+K untersucht wird, und bei dem die Summe Nf (s) so interpretiert wird:
+$N_f(s)=\underbrace{s^2+\alpha s + 2} +\underbrace{K}\cdot\underbrace{1} $\\
+\textcolor{white}{x} \hspace{12.25cm} $P_N(s)=N(s) \quad Faktor  \quad P_z(s)=Z(s)$
+Fall 2, $\alpha$ variabel, K fix Bei einer Untersuchung bezüglich $\alpha$ ist dagegen
+$N_f(s)=\underbrace{s^2+ 2 + K} +\underbrace{\alpha}\cdot\underbrace{s} $\\
+\textcolor{white}{x} \hspace{13.5cm} $P_N(s) \qquad Faktor  \quad P_z(s)$
