@@ -108,34 +108,29 @@ Abbildung \ref{Asymptotenrichtungen}: Asymptotenrichtungen bei WOK für die Fäl
 Eine der Asymptoten zeigt in die Richtung $\phi = \frac{\pi}{n-m}$. Die weiteren Asymptoten
 sind dann gleichmässig um den Winkel $\frac{2\pi}{n-m}$ versetzt,
 
-
-\begin{figure}[h!]
-	\begin{center}
-	\begin{subfigure}[b]{7.5cm}
-\item 4. Verzweigungspunkte, Vereinigungspunkte:\\ %nicht sauber
-In Abb. \ref{Asymptotenrichtungen} fehlt noch eine Erklärung zu den mit ? versehenen Stellen. Treffen
-beispielsweise zwei Äste, von Polen her kommend, aufeinander, dann verzweigt
+\begin{multicols}{2}
+\item Verzweigungspunkte, Vereinigungspunkte:\\
+Erklärung zu den In Abb. \ref{Asymptotenrichtungen} mit ? versehenen Stellen. Treffen
+zwei Äste, von Polen her kommend, aufeinander, dann verzweigt
 sich die WOK. Beim Verzweigungspunkt treten die Äste (meistens) rechtwinklig
 aus der reellen Achse aus. Entsprechend können auch zwei Äste im rechten
 Winkel auf die reelle Achse zustreben und nach dem Vereinigungspunkt auf
-dieser weiterlaufen.\\
-In Abb. \ref{KomplettWOK} ist die Skizze der WOK aus Abb. \ref{beispielAchse}
+dieser weiterlaufen. In Abb. \ref{KomplettWOK} ist die Skizze der WOK aus Abb. \ref{beispielAchse}
 komplettiert: $\sigma_{V,1}$ ist dabei ein Vereinigungspunkt, $\sigma_{V,2}$ und $\sigma_{V,3}$ sind zwei
 Verzweigungspunkte. $\sigma_{V,1}$ und $\sigma_{V,2}$ sind näherungsweise mit zwei Kreisbögen
 verbunden. Da n-m = 3 gilt, entstehen drei Asymptoten, deren Schnittpunkt
 bei $\sigma_A$ liegt.
-		\includegraphics[width=7.5cm]{./images/KomplettWOK.png}
-		\caption{Komplettierte Skizze der WOK zu Abb: \ref{beispielAchse}}
-		\label{KomplettWOK}
-	\end{subfigure}\qquad
-	\begin{subfigure}[b]{10.5cm}
-		\centering
+
+\includegraphics[width=7.5cm]{./images/KomplettWOK.png}\\
+Abbildung: \ref{KomplettWOK} {Komplettierte Skizze der WOK Abb: \ref{beispielAchse}} \label{KomplettWOK}
+\end{multicols}
+\end{enumerate}
+	\begin{figure}[h!]{11cm}
 		\includegraphics[width=10.5cm]{./images/BilderWOK.png}
 		\caption{WOK zu einigen geläufigen Pol-/Nullstellenverteilungen, Quelle}
-	\end{subfigure}
-	\end{center}
-\end{figure}
-\end{enumerate}
+	\end{figure}
+
+\clearpage
 
 \subsection{Interpretation der Wurzelortskurven}
 
@@ -160,9 +155,10 @@ Lösung: \[G_0=K_R\cdot\frac{5}{\underbrace{(s+2)(s+4)}}=\underbrace{K_r\cdot 5}
 Zusammenfassung des Vorgehens:
 
 \begin{eqnarray}
-	K=\frac{\prod_{i=1}^{n} \theta_i}{\prod_{i=1}^{m} \lambda_i}=\frac{\theta_1\theta_2\wedge\cdots\theta_n}{\lambda_1\lambda_2\wedge\cdots\lambda_m}\\
+	K=\frac{\prod_{i=1}^{n} \theta_i}{\prod_{i=1}^{m}\lambda_i}=\frac{\theta_1\theta_2\cdots\theta_n}{\lambda_1\lambda_2\cdots\lambda_m} \\
+	\theta \quad \text{Wurzel Abstände}
 \end{eqnarray}
-\columnbreak
+
 \begin{itemize}
 	\item  Links: Die WOK-Äste treffen sich bei -3 und laufen vertikal weiter.
 	\item  Mitte: Die Dämpfung nimmt mit steigendem Wert von K (bzw. $K_R$) ab; die

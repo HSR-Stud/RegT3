@@ -58,6 +58,7 @@
  			}  \lim_{t\rightarrow \infty} f(t)\text{~existiert.}$ \\
  			\hline
        	\end{tabularx}
+Beispiel: \[Sprungantwort \ von \ G_1(s) = \frac{3+s}{s} \quad \Rightarrow \quad \frac{1}{s}\cdot G_1(s)= \frac{1}{s}\cdot\frac{3+s}{s}=\frac{3}{s^2}+\frac{1}{s} \ \laplace \ 3t +\sigma(s)\]
 \newpage
 	\subsubsection{Laplace-Tabelle}
 	\begin{multicols}{2}
@@ -148,13 +149,12 @@ an den physikalischen Grössen bleibt
 
 	\columnbreak
 \begin{center}
-
 $Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}$
 \end{center}
 \end{multicols}
 
-Auch hier beinhaltet das Gleichungssystem 5 Gleichungen und 6 Signale. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt hier leichter. Offensichtlich sind hier weniger Anfangsbedingungen nötig als wenn nur eine Gleichung in den Bildbereich transformiert wird.
-
+Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter. Weniger Anfangsbedingungen nötig als wenn nur als 1 Gleichung im Zeit bereich in den Bildbereich transformiert wird.\\
+Beispiel DGL: $u-4\dot{u}=3e+4\dot{e}+\ddot{e} \ \laplace \ U(1-4s)=E(3+4s+s^2) \qquad \frac{U}{E}=\frac{3+4s+s^2}{1-4s}$
 
 \subsection{Partialbruchzerlegung (PBZ)}
 \subsubsection{Allgemeines Vorgehen}			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30} \Rightarrow \; \Rightarrow x^{3}+4x^{2}-11x-30=(x+2)(x^{2}+2x-15)=(8x+2)(x+5)(x-3)\]
@@ -162,9 +162,9 @@ Auch hier beinhaltet das Gleichungssystem 5 Gleichungen und 6 Signale. Das Elimi
 			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30}=\frac{A}{x-3} + \frac{B}{x+2} + \frac{C}{x+5}=
 			\frac{A(x+2)(x+5)+B(x-3)(x+5)+C(x-3)(x+2)}{(x-3)(x+2)(x+5)}\]
 			Gleichungssystem \textbf{(Z"ahler gleichsetzen)} aufstellen mit beliebigen $x_i$-Werten (am Besten Polstellen oder 0,1,-1 w"ahlen):
-			\[\begin{array}{l}x_1=3:\;-9+60+149=A\cdot5\cdot8\;\;\;\Rightarrow A=5\\
-			x_2=-2:\;-4-40+149=B(-5)\cdot3\; \Rightarrow B=-7\\
-			x_3=-5:\;-25-100+149=C(-8)(-3) \Rightarrow C=1 \end{array} \Rightarrow f(x)=\frac{5}{x-3}+\frac{7}{x+2} + \frac{1}{x+5}\]
+%			\[\begin{array}{l}x_1=3:\;-9+60+149=A\cdot5\cdot8\;\;\;\Rightarrow A=5\\
+%			x_2=-2:\;-4-40+149=B(-5)\cdot3\; \Rightarrow B=-7\\
+%			x_3=-5:\;-25-100+149=C(-8)(-3) \Rightarrow C=1 \end{array} \Rightarrow f(x)=\frac{5}{x-3}+\frac{7}{x+2} + \frac{1}{x+5}\]
 %			weitere Ans"atze f"ur andere Typen von Termen: (Mehrere Werte f"ur $x$ verwenden, auch wenn kein Koeffizient 0 wird.)
 %			\[f(x)=\frac{5x^2-37x+54}{x^3-6x^2+9x}=\frac{A}{x}+\frac{B}{x-3}+\frac{C}{(x-3)^2}=\frac{A(x-3)^2+Bx(x-3)+Cx}{x(x-3)^2}\]
 %			\[f(x)=\frac{1,5x}{x^3-6x^2+12x-8}=\frac{A}{x-2}+\frac{B}{(x-2)^2}+\frac{C}{(x-2)^3}=\frac{A(x-2)^2+B(x-2)+C}{(x-2)^3}\]
@@ -192,8 +192,8 @@ Die in (27) gegebene UTF scheint zwar ein System dritter Ordnung zu sein; die be
 folgenden Darstellungen zeigen aber, dass das I/O-Verhalten nur einem System
 zweiter Ordnung entspricht. In der faktorisierten Form äussert sich dies durch
 eine Pol-/Nullstellenkürzung; in der PBZ ist der entsprechende Koeffizient $c_{2}$ = 0.
-Die UTF in ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst
-minimal.
+Die UTF in ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst minimal. \\
+Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt das Vorzeichen.
 
 \subsubsection{Übertragungsfunktion mit komplexen Polen}
 \[G(s) =\frac{8s^{2} + 70s + 134}{s^3 + 15s^2 + 81s + 175}= \frac{8s^2+70s+134}{(s+7)(s+4+3j)(s+4-3j)}=\frac{2}{s+7}+\underbrace{\frac{3+2j}{s+4-3j}+\frac{3-2j}{s+4+3j}}\]
@@ -223,7 +223,7 @@ K=b_{m}
 \hspace{2.3cm}G(s)\\
 $Y(s) = \underbrace{\frac{\overbrace{s^2 LC+sRC}}{s^2 LC +sRC +1}\cdot U(s)} + \underbrace{\frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}}$ \newline
 \textcolor{white}{x} \hspace{2.4cm} $Y_{E}(s)$ \hspace{3.8cm} $Y_{F}(s)$ \\
-Das Ausgangssignal Y (s) setzt sich aus den beiden Termen $Y_{E}(s) und Y_{F}(s)$ zusammen.Der erzwungene Anteil $Y_{E}(s)$ ist durch das Eingangssignal U(s) bestimmt, aber unabhängig von den Anfangsbedingungen des Netzwerks.
+Das Ausgangssignal Y (s) setzt sich aus den beiden Termen $Y_{E}(s)$ und $Y_{F}(s)$ zusammen.Der erzwungene Anteil $Y_{E}(s)$ ist durch das Eingangssignal U(s) bestimmt, aber unabhängig von den Anfangsbedingungen des Netzwerks.
 Beim freien Anteil $Y_{F}(s)$ ist es umgekehrt; dieser hängt nur von den Anfangsbedingungen,
 nicht aber vom Eingangssignal ab. Die freie Antwort zeigt also, wie
 das System sich verhält, wenn man es ‘sich selbst überlässt’
@@ -248,7 +248,8 @@ aufweisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit $m < n$
 ein Tiefpass. Systeme mit m $\leq$ n werden als realisierbar bezeichnet. Motiviert wird
 diese Bezeichnung dadurch, weil für ein Schrittsignal am Eingang ein P-Glied ideal
 funktionieren kann, ein D-Glied aber nicht. Praktisch bedeutet das, dass bei einem Regler nicht mehr Nullstellen als Pole
-eingebaut werden dürfen.
+eingebaut werden dürfen. $\qquad \Rightarrow \qquad m > n$ ist nicht realisierbar
+
 \subsubsection{Minimalität}
 
 Eine UTF mit Nennergrad n ist minimal, wenn keine Pol-Nullstellenkürzung
@@ -278,7 +279,7 @@ sie asymptotisch stabil ist.
 
 Eine notwendige Stabilitätsbedingung für das charakteristische Polynom besteht darin, dass alle Koeffizienten positiv sind. (Vorzeichenbedingung)
 \begin{equation}
-\boxed{N(s) = a_{n}s^n + a_{n-1}s^{n-1} + . . . + a_2s^2 + a_1s + a_0 mit an > 0}
+\boxed{N(s) = a_{n}s^n + a_{n-1}s^{n-1} + . . . + a_2s^2 + a_1s + a_0 \quad mit \quad a_n > 0}
 \end{equation}
 Sind bei einem Polynom alle Koeffizienten negativ (inklusive $a_n$), ist die obige
 notwendige Bedingung sinngemäss ebenfalls erfüllt.
@@ -391,7 +392,7 @@ Die Schrittantwort eines $PT_2$-Glieds mit $|\xi| < 1$ ergibt
 \end{itemize}
 	\columnbreak
 \begin{center}
-	\includegraphics[width=6cm]{./images/pt2.png}
+	\includegraphics[width=7cm]{./images/pt2.png}
 \end{center}
 \end{multicols}
 
@@ -418,17 +419,23 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 \begin{center}
 	\includegraphics[width=16cm]{./images/blockdiagrammAlgebra.png}
 \end{center}
+\vspace{-1cm}\begin{multicols}{2}
+\begin{center}
+\includegraphics[width=9cm]{./images/blockdiagrammAlgebra2.png}
+\end{center}
+
+\columnbreak
+
 \begin{itemize}
 \item Zwei Blöcke hintereinander 
 \begin{itemize}
-	\item $U(s) \longrightarrow G_1(s)\longrightarrow G_2(s) \longrightarrow Y(s) \quad ergibt  \quad G(s)=G_1(s)\cdot G_2(s)$
+	\item $G(s)=G_1(s)\cdot G_2(s)$
 	\item $Y(s) = G(s)=G_1(s)\cdot G_2(s) \cdot U(s)$
 \end{itemize}
 \item Zwei Blöcke Parallel
 \begin{itemize}
 	\item $G(s) = G_1(s) + G_2(s)$
-	\item $Y_1(s) = G_1(s)\cdot U(s), Y_2(s) = G_2(s)\cdot U(s) \quad und \quad  Y(s) = Y_1(s)+ Y_2(s)$
-	\item ergibt: $Y(s)= (G_s(s)+G_2(s))\cdot U(s)$
+	\item $Y(s)= (G_s(s)+G_2(s))\cdot U(s)$
 \end{itemize}
 
 \item Kreisschaltung
@@ -437,9 +444,7 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 	\item $Y(s) = \frac{G_1(s)}{1\pm G_1(s)\cdot G_2(s)} \cdot U(s)$
 \end{itemize}
 \end{itemize}
-\begin{center}
-\includegraphics[width=8cm]{./images/blockdiagrammAlgebra2.png}
-\end{center}
+\end{multicols}
 
 
 \subsection{Bodediagramm und Nyquistdiagramm}

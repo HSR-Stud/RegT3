@@ -1,7 +1,7 @@
 \section{Reglerentwurf}
 \subsection{Stationärer Zustand und Fehler}
 Die UTF des offenen Regelkreises setzt sich dabei aus derjenigen von Strecke
-und Regler zusammen: $G_0(s) = G_S(s)G_R(s)$. Es wird davon ausgegangen, dass G0
+und Regler zusammen: $G_0(s) = G_S(s)\cdot G_R(s)$. Es wird davon ausgegangen, dass $G_0$
 vollständig gekürzt ist und vom Typ $\nu$ ist d.h. $\nu$ offene Integratoren hat, bzw. $\nu$ Pole
 bei Null:
 \begin{table}[h!]
@@ -14,11 +14,9 @@ bei Null:
 	\end{tabularx}
 \end{table}
 \subsection{Spezifikationen für das dynamische Verhalten}
-\begin{eqnarray}
-	G_f(s)=\frac{Y(s)}{R(s)}=\frac{G_0(s)}{1+G_0(s)} \\
-	S(s)=\frac{1}{1+G_0(s)}\\
-	T(s)=1-S(s)=\frac{G_0(s)}{1+G_0(s)}
-\end{eqnarray}
+\begin{equation}
+	G_f(s)=\frac{Y(s)}{R(s)}=\frac{G_0(s)}{1+G_0(s)} \qquad S(s)=\frac{1}{1+G_0(s)} \qquad T(s)=1-S(s)=\frac{G_0(s)}{1+G_0(s)}
+\end{equation}
 \begin{figure}[h!]
 	\begin{center}
 	\begin{subfigure}[b]{8cm}
@@ -34,6 +32,37 @@ bei Null:
 	\end{center}
 \end{figure}\\
 	Wird z.B. die Führungsgrösse mit einem Faktor bzw. Vorfilter L(s) vorverstärkt so ist $G_f(s)=\frac{Y(s)}{R(s)}=L(s)\cdot\frac{G_0(s)}{1+G_0(s)}$ während S(s) und T(s) erhalten bleiben.
+%\begin{multicols}{2}
+%		\includegraphics[width=9cm]{./images/SensitivitaetsUTF.png}
+%\columnbreak
+%
+%Wegen $S(s) = \frac{1}{1+G_0(s)}$ ist auch der Verlauf von $S(j\omega)$ plausibel: kleine Verstärkung
+%bei tiefen Frequenzen und $S(j\omega) \approx 1$ bei hohen Frequenzen. Abb. \ref{SensitivitaetRegelkreis} zeigt,
+%dass $S(s) = \frac{E(s)}{R(s)}$ gilt; hochfrequente Führungssignale $r(t)$ erscheinen somit praktisch
+%ungefiltert im Regelfehler $e(t)$. Ebenso wirken wegen $S(s) = \frac{Z(s)}{Y(s)}$ hochfrequente Störungen
+%$z(t)$ am Streckenausgang fast ungefiltert auf die Regelgrösse $y(t)$.
+%\end{multicols}
+
+\begin{figure}[h!]
+	\begin{center}
+	\begin{subfigure}[b]{9cm}
+	\flushleft
+			\includegraphics[width=9cm]{./images/SensitivitaetsUTF.png}
+\caption{Sensitivitäts-UTF im Regelkreis, $S(s) = \frac{E(s)}{R(s)}=\frac{Z(s)}{Y(s)}$}
+			\label{SensitivitaetRegelkreis}
+	\end{subfigure}\qquad
+	\begin{subfigure}[b]{8cm}
+Wegen $S(s) = \frac{1}{1+G_0(s)}$ ist auch der Verlauf von $S(j\omega)$ plausibel: kleine Verstärkung
+bei tiefen Frequenzen und $S(j\omega) \approx 1$ bei hohen Frequenzen. Abb. \ref{SensitivitaetRegelkreis} zeigt,
+dass $S(s) = \frac{E(s)}{R(s)}$ gilt; hochfrequente Führungssignale $r(t)$ erscheinen somit praktisch
+ungefiltert im Regelfehler $e(t)$. Ebenso wirken wegen $S(s) = \frac{Z(s)}{Y(s)}$ hochfrequente Störungen
+$z(t)$ am Streckenausgang fast ungefiltert auf die Regelgrösse $y(t)$.
+
+	\end{subfigure}
+	\end{center}
+\end{figure}
+
+
 
 \subsection{Restriktionen: Bode-Integral der Sensitivität}
 
