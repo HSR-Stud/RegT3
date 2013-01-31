@@ -154,7 +154,7 @@ $Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{
 \end{multicols}
 
 Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter. Weniger Anfangsbedingungen nötig als wenn nur als 1 Gleichung im Zeit bereich in den Bildbereich transformiert wird.\\
-Beispiel DGL: $u-4\dot{u}=3e+4\dot{e}+\ddot{e} \ \laplace \ U(1-4s)=E(3+4s+s^2) \qquad \frac{U}{E}=\frac{3+4s+s^2}{1-4s}$
+Beispiel DGL: $u-4\dot{u}=3e+4\dot{e}+\ddot{e} \ \laplace \ U(1-4s)=E(3+4s+s^2) \qquad \frac{Ausgang}{Eingang}=\frac{U}{E}=\frac{3+4s+s^2}{1-4s}$
 
 \subsection{Partialbruchzerlegung (PBZ)}
 \subsubsection{Allgemeines Vorgehen}			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30} \Rightarrow \; \Rightarrow x^{3}+4x^{2}-11x-30=(x+2)(x^{2}+2x-15)=(8x+2)(x+5)(x-3)\]
@@ -188,12 +188,7 @@ Faktorisierung ist dabei nur beim Nenner nötig.
 
 \subsubsection{Nichtminimale Übertragungsfunktion}
 \[G(s) =\frac{8s^{2} + 80s + 200}{s^3 + 15s^2 + 71s + 105}= \frac{4}{s+3} + \frac{0}{s+5} + \frac{4}{s+7}\]
-Die in (27) gegebene UTF scheint zwar ein System dritter Ordnung zu sein; die beiden
-folgenden Darstellungen zeigen aber, dass das I/O-Verhalten nur einem System
-zweiter Ordnung entspricht. In der faktorisierten Form äussert sich dies durch
-eine Pol-/Nullstellenkürzung; in der PBZ ist der entsprechende Koeffizient $c_{2}$ = 0.
-Die UTF in ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst minimal. \\
-Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt das Vorzeichen.
+In der faktorisierten Form äussert sich dies durch eine Pol-/Nullstellenkürzung; in der PBZ ist der entsprechende Koeffizient $c_{2}$ = 0. Die UTF in ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst minimal. \\
 
 \subsubsection{Übertragungsfunktion mit komplexen Polen}
 \[G(s) =\frac{8s^{2} + 70s + 134}{s^3 + 15s^2 + 81s + 175}= \frac{8s^2+70s+134}{(s+7)(s+4+3j)(s+4-3j)}=\frac{2}{s+7}+\underbrace{\frac{3+2j}{s+4-3j}+\frac{3-2j}{s+4+3j}}\]
@@ -241,7 +236,9 @@ Die erzwungene Antwort $Y_{E}(s) = G(s) \cdot U(s)$ kann als Produkt geschrieben
 wenn keine Nullstelle $z_i$ in der rechten Halbebene liegt und die Totzeit $T_t = 0$ ist.
 Motivation für den Ausdruck ‘minimalphasig’: bei stabilen Systemen hat ein
 minimalphasiges System bei gegebenem Amplitudengang den minimal möglichen
-Phasenabfall im Phasengang.
+Phasenabfall im Phasengang.\\
+Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt das Vorzeichen.
+
 \subsubsection{Reaslisierbarkeit}
 mit m = 3 und n = 2 illustriert, dass UTF mit $m > n$ differentierendes Verhalten
 aufweisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit $m < n$ ist
@@ -253,8 +250,7 @@ eingebaut werden dürfen. $\qquad \Rightarrow \qquad m > n$ ist nicht realisierb
 \subsubsection{Minimalität}
 
 Eine UTF mit Nennergrad n ist minimal, wenn keine Pol-Nullstellenkürzung
-möglich ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig.\\
-keine Pol-/Nullstellenkürzung möglich ist. Zu beachten ist, dass Kürzungen in
+möglich ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig. Zu beachten ist, dass Kürzungen in
 der rechten Halbebene normalerweise nicht erlaubt sind, da durch sie Instabilitäten
 in einem System unsichtbar werden.
 
@@ -300,7 +296,7 @@ Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit po
 	& $b_2=\frac{a_{n-1}a_{n-4}-a_{n}a_{n-5}}{a_{n-1}}$
 	& $b_3=\ldots$ \\
 	$c_1=\frac{b_{1}a_{n-3}-a_{n-1}b_{2}}{b_{1}}$
-	& $c_1=\frac{b_{1}a_{n-5}-a_{n-1}b_{3}}{b_{1}}$
+	& $c_2=\frac{b_{1}a_{n-5}-a_{n-1}b_{3}}{b_{1}}$
 	& $c_3=\ldots$ \\
 	$d_1=\frac{c_{1}b_{2}-b_{1}c_{2}}{c_{1}}$
 	& $d_2=\ldots$ & \\
@@ -342,65 +338,60 @@ Das $PT_2$-Glied hat eine UTF mit den drei Parametern K, $\xi$ und T (bzw. $\ome
 \begin{equation}
 \boxed{\frac{Y(s)}{R(s)}=G(s)=\frac{K}{s^2T^2+2\xi Ts+1}=\frac{K\omega^{2}_{n}}{s^2 + 2\xi \omega_{n}s+\omega^{2}_{n}}}
 \end{equation}
-\begin{itemize}
-\item Modifikation
-von K verändert die Höhe der Schrittantwort durch Strecken/Stauchen in
-vertikaler Richtung. (Signalwerte)
-\item Modifikation von T (bzw. $\omega n$) verändert
-die Schrittantwort durch Strecken/Stauchen in horizontaler Richtung. (Zeit)
-\item Abhängig von $\xi$ ergeben sich folgende Fälle:
-\begin{itemize}
-\item Fall mit $\xi$ < 0
-Da T als positiv angenommen wird, ergibt sich für $\xi$ < 0 gemäss Vorzeichenbedingung
-ein instabiles System.
-\item Fall mit $\xi$ = 0
-Dies ergibt einen harmonischen Oszillator; die Pole liegen bei $\pm j\omega_{n}$.
-NB: die Periode der Oszillation entspricht nicht der Zeitkonstanten T.
-\item Fall mit $ 0 < \xi < 1$
-Hier resultiert ebenfalls eine Schwingung mit einer Periode; allerdings ist
-die Schwingung gedämpft. Dieser Fall wird unten genauer betrachtet.
-\item Fall mit $1 \leq \xi$
-Dies entspricht dem aperiodischen Fall. Für (35) ist eine Faktorisierung
-mit reellen Werten T1,2 möglich:
-Für $\xi$ = 1 ist T1 = T2 = T; das $PT_2$-Glied entspricht der Serieschaltung
-zweier identischer PT1-Glieder.
-Für $\xi$ > 1 ist $T_1 > T > T_2$; das $PT_2$-Glied entspricht der Serieschaltung
-zweier unterschiedlicher PT1-Glieder.
-Für $\xi \gg 0$ wird mit $T_1 \gg T_2$ die Zeitkonstante T1 dominant. Das $PT_2$-
-Glied verhält sich ähnlich wie ein $PT_1$-Glied
-\end{itemize}
-\end{itemize}
+%\begin{itemize}
+%\item Modifikation
+%von K verändert die Höhe der Schrittantwort durch Strecken/Stauchen in
+%vertikaler Richtung. (Signalwerte)
+%\item Modifikation von T (bzw. $\omega n$) verändert
+%die Schrittantwort durch Strecken/Stauchen in horizontaler Richtung. (Zeit)
+%\item Abhängig von $\xi$ ergeben sich folgende Fälle:
+%\begin{itemize}
+%\item Fall mit $\xi$ < 0
+%Da T als positiv angenommen wird, ergibt sich für $\xi$ < 0 gemäss Vorzeichenbedingung
+%ein instabiles System.
+%\item Fall mit $\xi$ = 0
+%Dies ergibt einen harmonischen Oszillator; die Pole liegen bei $\pm j\omega_{n}$.
+%NB: die Periode der Oszillation entspricht nicht der Zeitkonstanten T.
+%\item Fall mit $ 0 < \xi < 1$
+%Hier resultiert ebenfalls eine Schwingung mit einer Periode; allerdings ist
+%die Schwingung gedämpft. Dieser Fall wird unten genauer betrachtet.
+%\item Fall mit $1 \leq \xi$
+%Dies entspricht dem aperiodischen Fall. Für (35) ist eine Faktorisierung
+%mit reellen Werten T1,2 möglich:
+%Für $\xi$ = 1 ist T1 = T2 = T; das $PT_2$-Glied entspricht der Serieschaltung
+%zweier identischer PT1-Glieder.
+%Für $\xi$ > 1 ist $T_1 > T > T_2$; das $PT_2$-Glied entspricht der Serieschaltung
+%zweier unterschiedlicher PT1-Glieder.
+%Für $\xi \gg 0$ wird mit $T_1 \gg T_2$ die Zeitkonstante T1 dominant. Das $PT_2$-
+%Glied verhält sich ähnlich wie ein $PT_1$-Glied
+%\end{itemize}
+%\end{itemize}
+%
+%\[p_{1,2}=\frac{-2\xi\omega_n \pm \sqrt{4\xi^2 \omega^2_n - 4\omega^2_n}}{2}=\underbrace{-\xi\omega_n} \pm \underbrace{\sqrt{\xi^2-1}\cdot \omega_n}\]
+%\textcolor{white}{x} \hspace{10.5cm} $\sigma$ 
+%\hspace{1.5cm} $j\omega$
+%\begin{eqnarray}
+%\sigma=-\xi\omega_n \quad und \quad \omega=\sqrt{1-\xi^2}\cdot \omega_n  \quad bzw. \\ \omega_n=\sqrt{\omega^2 + \sigma^2}  \quad und  \quad \xi = -\frac{\sigma}{\omega_n}=-\frac{\sigma}{\sqrt{\omega^2 + \sigma^2}}\label{xiOmega}
+%\end{eqnarray}
+%
+%Die Schrittantwort eines $PT_2$-Glieds mit $|\xi| < 1$ ergibt
+%\begin{equation}
+%\boxed{Y(s)=\frac{K\omega^2_n}{s(s^2+2\xi\omega_n s +\omega^2_n)}\laplace K\mathop{\Big[}1-e^{\sigma t}\mathop{\Big[}cos(\omega t)-\frac{\sigma}{\omega}sin(\omega t)\mathop{\Big]}\mathop{\Big]}=y(t)}
+%\end{equation}
+%\begin{multicols}{2}
+%\begin{itemize}
+%\item K ergibt sich durch $y_\infty$.
+%\item $\omega$ ergibt sich durch die Periode $T_\omega$ = 2$\pi$/$\omega$ [= $2T_m$].
+%\item $\sigma$ ergibt sich durch die Überschwingweite ym aus der Formel $y_m/y_\infty = e^{
+%\frac{\sigma}{\omega}\pi}$.
+%\item $\omega$n und $\xi$ ergeben sich gemäss (\ref{xiOmega}) aus $\omega$ und $\sigma$.
+%\end{itemize}
+%	\columnbreak
+%\begin{center}
+%	\includegraphics[width=7cm]{./images/pt2.png}
+%\end{center}
+%\end{multicols}
 
-\[p_{1,2}=\frac{-2\xi\omega_n \pm \sqrt{4\xi^2 \omega^2_n - 4\omega^2_n}}{2}=\underbrace{-\xi\omega_n} \pm \underbrace{\sqrt{\xi^2-1}\cdot \omega_n}\]
-\textcolor{white}{x} \hspace{10.5cm} $\sigma$ 
-\hspace{1.5cm} $j\omega$
-\begin{eqnarray}
-\sigma=-\xi\omega_n \quad und \quad \omega=\sqrt{1-\xi^2}\cdot \omega_n  \quad bzw. \\ \omega_n=\sqrt{\omega^2 + \sigma^2}  \quad und  \quad \xi = -\frac{\sigma}{\omega_n}=-\frac{\sigma}{\sqrt{\omega^2 + \sigma^2}}\label{xiOmega}
-\end{eqnarray}
-
-Die Schrittantwort eines $PT_2$-Glieds mit $|\xi| < 1$ ergibt
-\begin{equation}
-\boxed{Y(s)=\frac{K\omega^2_n}{s(s^2+2\xi\omega_n s +\omega^2_n)}\laplace K\mathop{\Big[}1-e^{\sigma t}\mathop{\Big[}cos(\omega t)-\frac{\sigma}{\omega}sin(\omega t)\mathop{\Big]}\mathop{\Big]}=y(t)}
-\end{equation}
-\begin{multicols}{2}
-\begin{itemize}
-\item K ergibt sich durch $y_\infty$.
-\item $\omega$ ergibt sich durch die Periode $T_\omega$ = 2$\pi$/$\omega$ [= $2T_m$].
-\item $\sigma$ ergibt sich durch die Überschwingweite ym aus der Formel $y_m/y_\infty = e^{
-\frac{\sigma}{\omega}\pi}$.
-\item $\omega$n und $\xi$ ergeben sich gemäss (\ref{xiOmega}) aus $\omega$ und $\sigma$.
-\end{itemize}
-	\columnbreak
-\begin{center}
-	\includegraphics[width=7cm]{./images/pt2.png}
-\end{center}
-\end{multicols}
-
-\subsubsection{Minimalphasigkeit}
-Gegenüber den Polen werden die Nullstellen oft etwas vernachlässigt. Trotzdem
-gibt es auch Fälle, in denen durch ungünstige Lage von Nullstellen regelungstechnische
-Probleme erschwert werden. Beispiele sind Nullstellen in der rechten Halbebene,
-durch die ein System nichtminimalphasig wird.
 \subsubsection{Totzeit, Padé-Approximation}
 \begin{equation}
 \boxed{e^{-sT_t}=e^x\mathop\mid\limits{_{x=-sT_t}} \quad mit \quad e^x\approx 1 \approx \frac{2+x}{2-x} \approx \frac{12+6x+x^2}{12-6x+x^2} \approx \ldots}
@@ -443,6 +434,12 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 	\item $G(s) = \frac{G_1(s)}{1\pm G_1(s)\cdot G_2(s)}$
 	\item $Y(s) = \frac{G_1(s)}{1\pm G_1(s)\cdot G_2(s)} \cdot U(s)$
 \end{itemize}
+
+\item Kreisschaltung ohne $G_2(s)$ in Rückkopplung
+\begin{itemize}
+	\item $G(s) = \frac{Z_1(s)}{N_1(s)\pm Z_1(s)}$
+\end{itemize}
+
 \end{itemize}
 \end{multicols}
 
@@ -469,7 +466,7 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 
 \subsubsection{Anwendung des Allgemeinen Nyquistkriteriums}
 \begin{enumerate}
-\item Die Anzahl N der Pole von G0, die in der rechten Halbebene oder auf der
+\item Die Anzahl N der Pole von $G_0$, die in der rechten Halbebene oder auf der
 imaginären Achse liegen, muss bestimmt werden. $(0 \leq N \leq n)$
 \item Beide Äste der Ortskurve von $G_0(j\omega)$ müssen gezeichnet werden.
 \item Umschlingt die Ortskurve den kritischen Punkt -1 genau N mal positiv (im
@@ -480,7 +477,7 @@ Beispiel: $G_0(S)= K\cdot\frac{1}{s}\frac{1}{(s+1)^2}$
 Wegen des Integrators ist N = 1. Dies bedeutet, dass der kritische Punkt
 einmal im Gegenuhrzeigersinn umschlungen werden muss.\\
 \begin{tabularx}{\textwidth}{XXX}
-$K > 2$ & $Anzahl Umschlingungen: -1$ & Regelkreis instabil \\
+$K > 2$ & Anzahl Umschlingungen: -1 & Regelkreis instabil \\
 $2 > K > 0$ & Anzahl Umschlingungen: 1 & Regelkreis (asymptotisch) stabil\\
 $0 >K$ & Anzahl Umschlingungen: 0 & rightarrow Regelkreis instabil\\
 \end{tabularx}
