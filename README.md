@@ -8,3 +8,6 @@ Unterlagen + Hilfsmittel, die in der Prüfung verwendet werden dürfen:
 - 10 A4-Seiten handgeschrieben oder kopiert
   NB: diese Zusammenfassung muss NICHT während des Semesters abgegeben werden
 - KEIN Taschenrechner
+=============================================================================
+
+Stand: 31.01.2013
