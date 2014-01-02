@@ -4,60 +4,61 @@
 
  	\subsubsection{Eigenschaften}
   		\renewcommand{\arraystretch}{2}
-		\begin{tabularx}{\textwidth}{|l|X|}
-        	\hline
-        	Linearität & 
- 			$a\cdot f(t) + \beta\cdot g(t) \laplace a\cdot F(s) + \beta\cdot
- 			G(s)$ \\
- 			\hline
- 			"Ahnlichkeit / Streckung &
- 			$f(a t) \laplace \frac{1}{a}F \left (\frac{s}{a} \right ) \quad 0
- 			<a \in\mathbb{R}$ \\
- 			\hline
- 			Faltung im Zeitbereich &
- 			$f(t) \ast g(t) = \int\limits_{0}^{t} f(\tau)g(t-\tau)d\tau \laplace F(s)
- 			\cdot G(s)$\\
- 			\hline
- 			Faltung im Frequenzbereich &
- 			$f(t) \cdot g(t) \laplace \frac{1}{2\pi j}\int\limits_{c-j\infty}^{c+j\infty}
- 			F(\xi) G(s-\xi)d\xi$ \\
- 			\hline
- 			Ableitung im Zeitbereich &
- 			$\frac{\partial f(t)}{\partial t} \laplace sF(s)
- 			-f(0^+)$ \\
- 			\hline
- 			Ableitungen im Zeitbereich &
- 			$\frac{\partial^n f(t)}{\partial t^n} \laplace s^nF(s)
- 			-s^{n-1}f(0^+)-s^{n-2}\frac{\partial f(0^+)}{\partial t}-\ldots
- 			-s^0\frac{\partial^{n-1} f(0^+)}{\partial t^{n-1}}$ \\
- 			\hline
- 			Multiplikation mit $t$ &
- 			$t\cdot f(t)  \laplace \frac{-\partial F(s)}{\partial s}$ \\
- 			\hline
- 			Ableitung im Frequenzbereich &
- 			$(-t)^n f(t) \laplace  \frac{\partial^n F(s)}{\partial s^n}$ \\
- 			\hline
- 			Verschiebung im Zeitbereich nach rechts &
- 			$f(t - t_0) \laplace F(s)e^{- t_0 s}$ \\
- 			\hline
-			Verschiebung im Zeitbereich nach links &
-			$f(t + t_0) \laplace e^{t_0 s} \cdot [F(s) - \int\limits_0^{t_0} f(t) \cdot e^{-st} dt]$\\
-			\hline
- 			Verschiebung im Frequenzbereich (Dämpfungssatz) &
- 			$f(t)e^{\mp a t} \laplace F(s\pm a)$ \\
- 			\hline
- 			Integration &
- 			$\int\limits_0^t f(\tau)d\tau \laplace \frac{1}{s}F(s)$ \\
- 			\hline
- 			Anfangswerttheorem &
- 			$\lim_{t\rightarrow 0^+} f(t) = \lim_{s\rightarrow \infty} s \cdot F(s),\text{~wenn
- 			}  \lim_{t\rightarrow 0} f(t)\text{~existiert}.$ \\
- 			\hline
- 			Endwerttheorem &
- 			$\lim_{t\rightarrow \infty} f(t) = \lim_{s\rightarrow 0} s \cdot F(s),\text{~wenn
- 			}  \lim_{t\rightarrow \infty} f(t)\text{~existiert.}$ \\
- 			\hline
-       	\end{tabularx}
+  				\begin{tabular}{|l|l|}
+  		        	\hline
+  		        	Linearität & 
+  		 			$\alpha\cdot f(t) + \beta\cdot g(t) \; \laplace \; \alpha\cdot F(s) + \beta\cdot
+  		 			G(s)$ \\
+  		 			\hline
+  		 			"Ahnlichkeit / Streckung &
+  		 			$f(\alpha t) \; \laplace \; \frac{1}{\alpha}F \left (\frac{s}{\alpha} \right ) \quad 0
+  		 			<\alpha \in\mathbb{R}$ \\
+  		 			\hline
+  		 			Faltung im Zeitbereich &
+  		 			$f(t) \ast g(t) = \int\limits_{0}^{t} f(\tau)g(t-\tau)d\tau \; \laplace \; F(s)
+  		 			\cdot G(s)$\\
+  		 			\hline
+  		 			Faltung im Frequenzbereich &
+  		 			$f(t) \cdot g(t) \; \laplace \; \frac{1}{2\pi j}\int\limits_{c-j\infty}^{c+j\infty}
+  		 			F(\xi) G(s-\xi)d\xi$ \\
+  		 			\hline
+  		 			Ableitung im Zeitbereich &
+  		 			$\frac{\partial f(t)}{\partial t} \; \laplace \; sF(s)
+  		 			-f(0^+)$ \\
+  		 			\hline
+  		 			Ableitungen im Zeitbereich &
+  		 			$\frac{\partial^n f(t)}{\partial t^n} \; \laplace \; s^nF(s)
+  		 			-s^{n-1}f(0^+)-s^{n-2}\frac{\partial f(0^+)}{\partial t}-\ldots
+  		 			-s^0\frac{\partial^{n-1} f(0^+)}{\partial t^{n-1}}$ \\
+  		 			\hline
+  		 			Multiplikation mit $t$ &
+  		 			$t\cdot f(t)  \; \laplace \; \frac{-\partial F(s)}{\partial s}$ \\
+  		 			\hline
+  		 			Ableitung im Frequenzbereich &
+  		 			$(-t)^n f(t) \; \laplace \;  \frac{\partial^n F(s)}{\partial s^n}$ \\
+  		 			\hline
+  		 			Verschiebung im Zeitbereich nach rechts &
+  		 			$f(t - t_0) \; \laplace \; F(s)e^{- t_0 s}$ \\
+  		 			\hline
+  					Verschiebung im Zeitbereich nach links &
+  					$f(t + t_0) \; \laplace \; e^{t_0 s} \cdot [F(s) - \int\limits_0^{t_0} f(t) \cdot e^{-st} dt]$\\
+  					\hline
+  		 			Verschiebung im Frequenzbereich (Dämpfungssatz) &
+  		 			$f(t)e^{\mp\alpha t} \; \laplace \; F(s\pm\alpha)$ \\
+  		 			\hline
+  		 			Integration (Sprungantwort)&
+  		 			$\int\limits_0^t f(\tau)d\tau \; \laplace \; \frac{F(s)}{s}$ \\
+  		 			\hline
+  		 			Anfangswert &
+  		 			$\lim_{t\rightarrow 0^+} f(t) = \lim_{s\rightarrow \infty} s\cdot F(s),\text{~wenn
+  		 			}  \lim_{t\rightarrow 0} f(t)\text{~existiert}.$ \\
+  		 			\hline
+  		 			Endwert &
+  		 			$\lim_{t\rightarrow \infty} f(t) = \lim_{s\rightarrow 0} s\cdot F(s),\text{~wenn
+  		 			}  \lim_{t\rightarrow \infty} f(t)\text{~existiert}.$ \\
+  		 			\hline
+  		       	\end{tabular}
+  				
 Beispiel: \[Sprungantwort \ von \ G_1(s) = \frac{3+s}{s} \quad \Rightarrow \quad \frac{1}{s}\cdot G_1(s)= \frac{1}{s}\cdot\frac{3+s}{s}=\frac{3}{s^2}+\frac{1}{s} \ \laplace \ 3t +\sigma(s)\]
 \newpage
 	\subsubsection{Laplace-Tabelle}
