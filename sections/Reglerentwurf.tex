@@ -82,7 +82,7 @@ T und/oder S. Typische Maximalwerte sind z.B. 3-5 dB.
 	sowohl Strecke wie Regler Tiefpassverhalten zeigen.
 	\item Ist $G_0$ stabil, dann wird der Ausdruck in (\ref{BodeIntegral}) gleich Null. Ist bei einer Frequenz
 	$|S(j\omega)| < 0 \ dB$, dann muss zwingend irgendwo anders $|S(j\omega)| > 0 \ dB$ sein.
-	\item Verkleinert man $|S(j\omega)|$ an einer Stelle, wird $|S(j\omega|$ dafür an einer anderen
+	\item Verkleinert man $|S(j\omega)|$ an einer Stelle, wird $|S(j\omega)|$ dafür an einer anderen
 	Stelle grösser; dies wird als ‘Wasserbetteffekt’ bezeichnet.
 	Gleichung (\ref{BodeIntegral}) hat den Charakter eines Erhaltungsgesetzes.
 	\item Ist $G_0$ instabil, dann verschlechtert sich die Situation entsprechend.
@@ -95,5 +95,5 @@ In der Praxis kann der Aushub also nicht einfach in einem beliebig hohen bzw.
 breiten Frequenzband ‘entsorgt’ werden, sondern man muss Gleichung (\ref{BodeIntegral}) etwas
 einschränken:
 \begin{equation}
-\int\limits_{0}^{\omega_M}ln|S(j\omega)|d\omega =\pi\cdot\sum\limits_{i=1}^{N_{p}}Re(p_i)
+\int\limits_{0}^{\omega_M}ln|S(j\omega)|d\omega =\pi\cdot\sum\limits_{i=1}^{N_{p}}Re(p_i) \qquad \text{mit} \quad \omega_M \approx 10 \cdot \omega_B
 \end{equation}

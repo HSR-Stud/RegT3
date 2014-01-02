@@ -102,7 +102,7 @@ Beispiel: \[Sprungantwort \ von \ G_1(s) = \frac{3+s}{s} \quad \Rightarrow \quad
 \begin{itemize}
 		\item Definitionsbereich nur für kausale Systeme $t\geq 0$\\
 		\item Integrierbar über das Intervall $(0,\infty)$\\
-		\item Wachstum kleiner als der von eienr Exponentialfunktion\\ 
+		\item Wachstum kleiner als der von einer Exponentialfunktion\\ 
 		\item Gegen"uber $j\omega$ bei der Fourier-Transformation ist bei der
 			Laplace-Transformation $s$ verallgemeinert zu $s=\sigma + j\omega$. Das
 			bedeutet, dass die Fourier-Transformierte $F(j\omega)$ durch die
@@ -154,7 +154,7 @@ $Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{
 \end{center}
 \end{multicols}
 
-Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter. Weniger Anfangsbedingungen nötig als wenn nur als 1 Gleichung im Zeit bereich in den Bildbereich transformiert wird.\\
+Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter, da weniger Anfangsbedingungen nötig sind, als wenn nur 1 Gleichung im Zeitbereich in den Bildbereich transformiert wird.\\
 Beispiel DGL: $u-4\dot{u}=3e+4\dot{e}+\ddot{e} \ \laplace \ U(1-4s)=E(3+4s+s^2) \qquad \frac{Ausgang}{Eingang}=\frac{U}{E}=\frac{3+4s+s^2}{1-4s}$
 
 \subsection{Partialbruchzerlegung (PBZ)}
@@ -189,7 +189,7 @@ Faktorisierung ist dabei nur beim Nenner nötig.
 
 \subsubsection{Nichtminimale Übertragungsfunktion}
 \[G(s) =\frac{8s^{2} + 80s + 200}{s^3 + 15s^2 + 71s + 105}= \frac{4}{s+3} + \frac{0}{s+5} + \frac{4}{s+7}\]
-In der faktorisierten Form äussert sich dies durch eine Pol-/Nullstellenkürzung; in der PBZ ist der entsprechende Koeffizient $c_{2}$ = 0. Die UTF in ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst minimal. \\
+In der faktorisierten Form äussert sich dies durch eine Pol-/Nullstellenkürzung; in der PBZ ist der entsprechende Koeffizient $c_{2}$ = 0. Die UTF ist nicht minimal; eine vollständig gekürzte UTF dagegen heisst minimal. \\
 
 \subsubsection{Übertragungsfunktion mit komplexen Polen}
 \[G(s) =\frac{8s^{2} + 70s + 134}{s^3 + 15s^2 + 81s + 175}= \frac{8s^2+70s+134}{(s+7)(s+4+3j)(s+4-3j)}=\frac{2}{s+7}+\underbrace{\frac{3+2j}{s+4-3j}+\frac{3-2j}{s+4+3j}}\]
@@ -238,7 +238,7 @@ wenn keine Nullstelle $z_i$ in der rechten Halbebene liegt und die Totzeit $T_t 
 Motivation für den Ausdruck ‘minimalphasig’: bei stabilen Systemen hat ein
 minimalphasiges System bei gegebenem Amplitudengang den minimal möglichen
 Phasenabfall im Phasengang.\\
-Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt das Vorzeichen.
+Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt kurz das Vorzeichen.
 
 \subsubsection{Reaslisierbarkeit}
 mit m = 3 und n = 2 illustriert, dass UTF mit $m > n$ differentierendes Verhalten
@@ -322,7 +322,7 @@ Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit po
 \caption{Routh-Algorithmus}
 \end{table}
 
-\subsubsection{Dominaten Pole und Nullstellen}
+\subsubsection{Dominante Pole und Nullstellen}
 
 \begin{equation}
 \boxed{Y(s)=\frac{K}{s(sT+1)}=K\mathop{\Big[}\frac{1}{s}-\frac{1}{s+\frac{1}{T}}\mathop{\Big]} \laplace K\mathop{\Big[}1-e^{\frac{-1}{T}}\mathop{\Big]}=y(t)}
@@ -335,7 +335,7 @@ zu erreichen, sind grosse Werte am Reglerausgang nötig. Das bedeutet, dass man
 T nicht beliebig klein machen kann, bzw. den Pol $p_1$ nicht beliebig weit nach links
 legen darf.\\
 
-Das $PT_2$-Glied hat eine UTF mit den drei Parametern K, $\xi$ und T (bzw. $\omega$ n = 1/T ).
+Das $PT_2$-Glied hat eine UTF mit den drei Parametern K, $\xi$ und T (bzw. $\omega_n$ = 1/T ).
 \begin{equation}
 \boxed{\frac{Y(s)}{R(s)}=G(s)=\frac{K}{s^2T^2+2\xi Ts+1}=\frac{K\omega^{2}_{n}}{s^2 + 2\xi \omega_{n}s+\omega^{2}_{n}}}
 \end{equation}
@@ -462,14 +462,14 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 \end{itemize}
 \subsubsection{Nyquistkriterium}
 		Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der
-		Ortskurve in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur
+		Ortskurve von $G_0$ in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur
 		Linken\grqq\ liegt.
 
 \subsubsection{Anwendung des Allgemeinen Nyquistkriteriums}
 \begin{enumerate}
 \item Die Anzahl N der Pole von $G_0$, die in der rechten Halbebene oder auf der
 imaginären Achse liegen, muss bestimmt werden. $(0 \leq N \leq n)$
-\item Beide Äste der Ortskurve von $G_0(j\omega)$ müssen gezeichnet werden.
+\item Beide Äste ($-\infty < \omega < +\infty$) der Ortskurve von $G_0(j\omega)$ müssen gezeichnet werden.
 \item Umschlingt die Ortskurve den kritischen Punkt -1 genau N mal positiv (im
 Gegenuhrzeigersinn), dann ist der geschlossene Regelkreis 
 $\frac{Y(s)}{R(s)} = \frac{G_0}{1+G_0}$ asymptotisch stabil.
@@ -482,10 +482,11 @@ $K > 2$ & Anzahl Umschlingungen: -1 & Regelkreis instabil \\
 $2 > K > 0$ & Anzahl Umschlingungen: 1 & Regelkreis (asymptotisch) stabil\\
 $0 >K$ & Anzahl Umschlingungen: 0 & rightarrow Regelkreis instabil\\
 \end{tabularx}
-\subsection{Modellredution}
+
+\subsection{Modellreduktion}
 
 Tendenziell versucht man bei einer Modellreduktion, die tieffrequenten Eigenschaften
 beizubehalten und dafür Ungenauigkeiten in den höheren Frequenzbereichen in
 Kauf zu nehmen. Beim Modell $G_M$ wird also am ehesten $T_2$ als vernachlässigbar
 klein betrachtet, womit sich folgendes reduzierte Modell $\overline{G}_M$ ergibt
-\[G_M(s)=K\cdot\frac{1}{1+T_1s}\cdot\frac{1}{1+2\xi T_2 s +T^2_2 s^2} \quad wird zu \quad \overline{G}_M(s)=K\cdot\frac{1}{1+T_1s}\]
+\[G_M(s)=K\cdot\frac{1}{1+T_1s}\cdot\frac{1}{1+2\xi T_2 s +T^2_2 s^2} \quad \text{wird zu} \quad \overline{G}_M(s)=K\cdot\frac{1}{1+T_1s}\]
