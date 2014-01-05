@@ -1,8 +1,8 @@
-\section{Lineare Zeitinvariante System (LTI)}
-\subsection{Laplace-Transformation}
+\section{Lineare Zeitinvariante System (LTI) \buchSeite{20}}
+\subsection{Laplace-Transformation \buchSeite{20}}
 
 
- 	\subsubsection{Eigenschaften}
+ 	\subsubsection{Eigenschaften \buchSeite{22}}
   		\renewcommand{\arraystretch}{2}
   				\begin{tabular}{|l|l|}
   		        	\hline
@@ -57,11 +57,19 @@
   		 			$\lim_{t\rightarrow \infty} f(t) = \lim_{s\rightarrow 0} s\cdot F(s),\text{~wenn
   		 			}  \lim_{t\rightarrow \infty} f(t)\text{~existiert}.$ \\
   		 			\hline
-  		       	\end{tabular}
+  		       	\end{tabular}\\
+  		  \renewcommand{\arraystretch}{1.8}
   				
-Beispiel: \[Sprungantwort \ von \ G_1(s) = \frac{3+s}{s} \quad \Rightarrow \quad \frac{1}{s}\cdot G_1(s)= \frac{1}{s}\cdot\frac{3+s}{s}=\frac{3}{s^2}+\frac{1}{s} \ \laplace \ 3t +\sigma(s)\]
+	\subsubsection{Sprungantwort} 
+	Integration der Impulsantwort $G_1(s) = \frac{3+s}{s}$\\ 
+	\[\Rightarrow \quad \frac{1}{s}\cdot G_1(s)= \frac{1}{s}\cdot\frac{3+s}{s}=\frac{3}{s^2}+\frac{1}{s} \quad \laplace \quad 3t +\sigma(s)\]
+	
+	\subsection{Transformation einer periodischen Funktion \buchSeite{24}}
+		\[ F(s) = F_0(s)\cdot\dfrac{1}{1 - e^{-sT}} \qquad \text{mit } F_0(s) \text{ als eine Periode}\] 
+
+
 \newpage
-	\subsubsection{Laplace-Tabelle}
+	\subsubsection{Laplace-Tabelle \buchSeite{21}}
 	\begin{multicols}{2}
 		\begin{center}
 			\begin{tabular}{|lcc|}
@@ -112,7 +120,7 @@ Beispiel: \[Sprungantwort \ von \ G_1(s) = \frac{3+s}{s} \quad \Rightarrow \quad
 		\item mit $\sigma < 0 \rightarrow$ klingt die Amplidute für $0 < t \rightarrow \infty$ auf $0$ ab
 \end{itemize}
 
-	\subsubsection{Vorgehen Rücktransformation}
+	\subsubsection{Vorgehen Rücktransformation \buchSeite{21}}
 		\begin{enumerate}
 			\item Kürzen oder vereinfachen
 			\item Rücktransformation mittels Laplace-Tabelle
@@ -122,47 +130,99 @@ Beispiel: \[Sprungantwort \ von \ G_1(s) = \frac{3+s}{s} \quad \Rightarrow \quad
 	\end{center}
 \end{multicols}
 
-\subsection{Differentialgleichungen lösen}
+\subsection{Differentialgleichungen lösen\buchSeite{25-28}}
 Die ‘interne’ Beschreibung transformieren, fallen Probleme mit Anfangsbedingungen weg, da man näher
 an den physikalischen Grössen bleibt
 \begin{multicols}{2}
 		\begin{center}
-			\includegraphics[width=6cm]{./images/diffgleichung.png}
+			\includegraphics[width=4cm]{./images/diffgleichung.png}
 		\end{center}
+		$Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}$
 	\columnbreak
 \begin{center}
 	\begin{tabular}{ll}
-		$i(t) = C \cdot \dot{u}_{C}(t)$ & Kapazität  \\
-		$u_{L}(t) = L \cdot \dot{i}(t)$ & Induktivität \\
-		$u_{R}(t) = R \cdot i(t)$ & Widerstand \\
-		$u(t) = u_{C}(t) + u_{R}(t) + u_{L}(t)$ & Maschengleichung, links \\
-		$y(t) = u_{R}(t) + u_{L}(t)$ & Maschengleichung, rechts \\
+		$i(t) = C \cdot \dot{u}_{C}(t)$ & $I(s) = C  \cdot  [s  \cdot  U_{C}(s) - u_{C}(0)]$  \\
+		$u_{L}(t) = L \cdot \dot{i}(t)$ & $U_{L}(s) = L  \cdot  [s  \cdot  I(s) - i(0)]$ \\
+		$u_{R}(t) = R \cdot i(t)$ & $U_{R}(s) = R  \cdot  I(s)$ \\
+		$u(t) = u_{C}(t) + u_{R}(t) + u_{L}(t)$ & $U(s) = U_{C}(s) + U_{R}(s) + U_{L}(s)$ \\
+		$y(t) = u_{R}(t) + u_{L}(t)$ & $Y (s) = U_{R}(s) + U_{L}(s)$ \\
 	\end{tabular}
 \end{center}
 \end{multicols}
 
-\begin{multicols}{2}
-{	$I(s) = C  \cdot  [s  \cdot  U_{C}(s) - u_{C}(0)]$ \\
-	$U_{L}(s) = L  \cdot  [s  \cdot  I(s) - i(0)]$ \\
-	$U_{R}(s) = R  \cdot  I(s)$ \\
-	$U(s) = U_{C}(s) + U_{R}(s) + U_{L}(s)$ \\
-	$Y (s) = U_{R}(s) + U_{L}(s)$ \\}
 
-	\columnbreak
-\begin{center}
-$Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}$
-\end{center}
-\end{multicols}
+%Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter, da weniger Anfangsbedingungen nötig sind, als wenn nur 1 Gleichung im Zeitbereich in den Bildbereich transformiert wird.\\
+%Beispiel DGL: $u-4\dot{u}=3e+4\dot{e}+\ddot{e} \ \laplace \ U(1-4s)=E(3+4s+s^2) \qquad \frac{Ausgang}{Eingang}=\frac{U}{E}=\frac{3+4s+s^2}{1-4s}$
 
-Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter, da weniger Anfangsbedingungen nötig sind, als wenn nur 1 Gleichung im Zeitbereich in den Bildbereich transformiert wird.\\
-Beispiel DGL: $u-4\dot{u}=3e+4\dot{e}+\ddot{e} \ \laplace \ U(1-4s)=E(3+4s+s^2) \qquad \frac{Ausgang}{Eingang}=\frac{U}{E}=\frac{3+4s+s^2}{1-4s}$
+\subsection{Übertragungsfunktion UTF \buchSeite{29}}
+\hspace{2.3cm}G(s)\\
+$Y(s) = \underbrace{\frac{\overbrace{s^2 LC+sRC}}{s^2 LC +sRC +1}\cdot U(s)} + \underbrace{\frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}}$ \newline
+\textcolor{white}{x} \hspace{2.4cm} $Y_{E}(s)$ \hspace{3.8cm} $Y_{F}(s)$ \\
+Das Ausgangssignal Y (s) setzt sich aus den beiden Termen $Y_{E}(s)$ und $Y_{F}(s)$ zusammen.Der erzwungene Anteil $Y_{E}(s)$ ist durch das Eingangssignal U(s) bestimmt, aber unabhängig von den Anfangsbedingungen des Netzwerks.
+Beim freien Anteil $Y_{F}(s)$ ist es umgekehrt; dieser hängt nur von den Anfangsbedingungen,
+nicht aber vom Eingangssignal ab. Die freie Antwort zeigt also, wie
+das System sich verhält, wenn man es ‘sich selbst überlässt’
+für $u_{C}(0) \neq 0$ und/oder $i_{L}(0) \neq 0$.
+%\begin{itemize}
+%	\item $ y_{F}(t) die Form y_{F,1} \cdot e^{\lambda_{1}t} + y_{F,2} \cdot e^{\lambda_{1}t} \text{ haben muss, wobei}$
+%	\item $ \lambda_{1,2}= \frac{-RC \pm \sqrt{(RC)^2 - 4 \cdot LC} }{2 \cdot LC}$ die Wurzeln des charakteristischen Polynoms sind,
+%	\item und die Werte $y_{F,1} \text{ und } y_{F,2}$ sich aus den Anfangsbedingungen ergeben.
+%\end{itemize}
+Offensichtlich ist die freie Antwort $Y_{F}$ dann von Bedeutung, wenn man an ganz konkreten
+Signalwerten interessiert ist, sonst wird der Fokus jedoch auf $Y_{E}$ gelegt. \\
+%Die erzwungene Antwort $Y_{E}(s) = G(s) \cdot U(s)$ kann als Produkt geschrieben werden, wobei G(s) der Übertragungs-funktion entspricht.
 
-\subsection{Partialbruchzerlegung (PBZ)}
-\subsubsection{Allgemeines Vorgehen}			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30} \Rightarrow \; \Rightarrow x^{3}+4x^{2}-11x-30=(x+2)(x^{2}+2x-15)=(8x+2)(x+5)(x-3)\]
-			Ansatz:
-			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30}=\frac{A}{x-3} + \frac{B}{x+2} + \frac{C}{x+5}=
-			\frac{A(x+2)(x+5)+B(x-3)(x+5)+C(x-3)(x+2)}{(x-3)(x+2)(x+5)}\]
-			Gleichungssystem \textbf{(Z"ahler gleichsetzen)} aufstellen mit beliebigen $x_i$-Werten (am Besten Polstellen oder 0,1,-1 w"ahlen):
+\subsection{Darstellung und Eigenschaften von UTF \buchSeite{31}}
+
+\begin{eqnarray}
+G(s)=\frac{Z(s)}{N(s)}& = &\frac{b_{m}s^m + b_{m-1}s^{m-1}+ ... + b_{1}s+b_{0}}{s^{n}+a_{n-1}s^{n-1} + ... + a_{2}s^{2}+a_{1}s + a_{0}} \\ 
+& = & K\cdot \frac{(s-z_{1})(s-z_{2})...(s-z_{m})}{(s-p_{1})(s-p_{2})...(s-p_{n})} \qquad \text{mit} \quad K=b_{m} \\ 
+& = & \frac{c_{1}}{s-p_{1}} + \frac{c_{2}}{s-p_{2}} + ...  + \frac{c_{n}}{s-p_{n}}
+\end{eqnarray}
+
+\subsubsection{minimalphasig \buchSeite{43}}
+wenn \textbf{keine Nullstelle $z_i$ in der rechten Halbebene liegt} und die \textbf{Totzeit $T_t = 0$} ist.
+Motivation für den Ausdruck ‘minimalphasig’: bei stabilen Systemen hat ein
+minimalphasiges System bei gegebenem Amplitudengang den minimal möglichen
+Phasenabfall im Phasengang.\\
+Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt kurz das Vorzeichen.
+
+\subsubsection{Reaslisierbarkeit \buchSeite{33}}
+%UTF mit $m > n$ weist differentierendes Verhalten weisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit $m < n$ ist
+%ein Tiefpass. 
+Systeme mit \textbf{m $\leq$ n} werden als realisierbar bezeichnet. Motiviert wird
+diese Bezeichnung dadurch, weil für ein Schrittsignal am Eingang ein P-Glied ideal
+funktionieren kann, ein D-Glied aber nicht. Praktisch bedeutet das, dass bei einem Regler nicht mehr Nullstellen als Pole
+eingebaut werden dürfen. $\Rightarrow \quad m > n$ ist nicht realisierbar
+
+\subsubsection{Minimalität \buchSeite{33}}
+
+Eine UTF mit Nennergrad n ist minimal, wenn \textbf{keine Pol-Nullstellenkürzung
+möglich} ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig. Zu beachten ist, dass Kürzungen in
+der rechten Halbebene normalerweise nicht erlaubt sind, da durch sie Instabilitäten
+in einem System unsichtbar werden.
+
+\subsubsection{Stabilität \buchSeite{34}}
+\begin{itemize}
+\item  ist asymptotisch stabil, wenn
+alle Pole $p_i$ in der linken Halbebene liegen (ohne Imaginärachse).
+\item  ist grenzstabil, wenn
+\begin{itemize}
+\item kein Pol in der rechten Halbebene liegt und
+\item mindestens ein Pol auf der Imaginärachse liegt und
+\item alle Pole auf der Imaginärachse einfache Pole sind.
+\end{itemize}
+\item  ist instabil, wenn
+sie weder asymptotisch stabil noch grenzstabil ist.
+%\item  ist stabil, wenn sie asymptotisch stabil ist.
+\end{itemize}
+
+\subsection{Partialbruchzerlegung (PBZ) \buchSeite{31}}
+%\subsubsection{Allgemeines Vorgehen}			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30} \Rightarrow \; \Rightarrow x^{3}+4x^{2}-11x-30=(x+2)(x^{2}+2x-15)=(8x+2)(x+5)(x-3)\]
+%			Ansatz:
+%			\[f(x)=\frac{x^2+20x+149}{x^3+4x^2-11x-30}=\frac{A}{x-3} + \frac{B}{x+2} + \frac{C}{x+5}=
+%			\frac{A(x+2)(x+5)+B(x-3)(x+5)+C(x-3)(x+2)}{(x-3)(x+2)(x+5)}\]
+%			Gleichungssystem \textbf{(Z"ahler gleichsetzen)} aufstellen mit beliebigen $x_i$-Werten (am Besten Polstellen oder 0,1,-1 w"ahlen):
 %			\[\begin{array}{l}x_1=3:\;-9+60+149=A\cdot5\cdot8\;\;\;\Rightarrow A=5\\
 %			x_2=-2:\;-4-40+149=B(-5)\cdot3\; \Rightarrow B=-7\\
 %			x_3=-5:\;-25-100+149=C(-8)(-3) \Rightarrow C=1 \end{array} \Rightarrow f(x)=\frac{5}{x-3}+\frac{7}{x+2} + \frac{1}{x+5}\]
@@ -200,79 +260,18 @@ werden. Glieder mit komplexen Werte für Verstärkung und Zeitkonstante werden
 üblicherweise aber zu Teilsystemen zweiter Ordnung zusammengefasst.
 
 \subsubsection{Fall m $>$ n}
-UTF mit m $>$ n haben bei hohen Frequenzen differentierendes Verhalten, mit m = n
-haben sie bei hohen Frequenzen Proportionalverhalten. Um solche UTF in eine
-parallele Form zu bringen, kann mit einer Polynomdivision gearbeitet werden. Die Polynomdivision wird abgebrochen, bevor negative s-Potenzen entstehen. Terme mit nicht-negativen s-Potenzen haben proportionales
-bzw. differentierendes Übertragungsverhalten; bei höheren s-Potenzen träte auch
-mehrfache Differentiation auf. Wenn ein übrig bleibt, so kann dieser mit PBZ weiter zerlegt werden.
-
-\subsection{Darstellung und Eigenschaften von UTF}
-
-\begin{eqnarray}
-G(s)=\frac{Z(s)}{N(s)}=\frac{b_{m}s^m + b_{m-1}s^{m-1}+ ... + b_{1}s+b_{0}}{s^{n}+a_{n-1}s^{n-1} + ... + a_{2}s^{2}+a_{1}s + a_{0}} \\ = K\cdot \frac{(s-z_{1})(s-z_{2})...(s-z_{m})}{(s-p_{1})(s-p_{2})...(s-p_{n})} \\ = \frac{c_{1}}{s-p_{1}} + \frac{c_{2}}{s-p_{2}} + ...  + \frac{c_{n}}{s-p_{n}}
-\end{eqnarray}
-
-\begin{equation}
-K=b_{m}
-\end{equation}
-\subsubsection{Übertragungsfunktion UTF}
-\hspace{2.3cm}G(s)\\
-$Y(s) = \underbrace{\frac{\overbrace{s^2 LC+sRC}}{s^2 LC +sRC +1}\cdot U(s)} + \underbrace{\frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}}$ \newline
-\textcolor{white}{x} \hspace{2.4cm} $Y_{E}(s)$ \hspace{3.8cm} $Y_{F}(s)$ \\
-Das Ausgangssignal Y (s) setzt sich aus den beiden Termen $Y_{E}(s)$ und $Y_{F}(s)$ zusammen.Der erzwungene Anteil $Y_{E}(s)$ ist durch das Eingangssignal U(s) bestimmt, aber unabhängig von den Anfangsbedingungen des Netzwerks.
-Beim freien Anteil $Y_{F}(s)$ ist es umgekehrt; dieser hängt nur von den Anfangsbedingungen,
-nicht aber vom Eingangssignal ab. Die freie Antwort zeigt also, wie
-das System sich verhält, wenn man es ‘sich selbst überlässt’
-$\text{für} u_{C}(0) \neq 0 \text{ und } \diagup \text{ oder } i_{L}(0) \neq 0$
-\begin{itemize}
-	\item $ y_{F}(t) die Form y_{F,1} \cdot e^{\lambda_{1}t} + y_{F,2} \cdot e^{\lambda_{1}t} \text{ haben muss, wobei}$
-	\item $ \lambda_{1,2}= \frac{-RC \pm \sqrt{(RC)^2 - 4 \cdot LC} }{2 \cdot LC}$ die Wurzeln des charakteristischen Polynoms sind,
-	\item und die Werte $y_{F,1} \text{ und } y_{F,2}$ sich aus den Anfangsbedingungen ergeben.
-\end{itemize}
-Offensichtlich ist die freie Antwort $Y_{F}$ dann von Bedeutung, wenn man an ganz konkreten
-Signalwerten interessiert ist, sonst wird der Fokus jedoch auf $Y_{E}$ gelegt. \\
-Die erzwungene Antwort $Y_{E}(s) = G(s) \cdot U(s)$ kann als Produkt geschrieben werden, wobei G(s) der Übertragungs-funktion entspricht.
-
-\subsubsection{minimalphasig}
-wenn keine Nullstelle $z_i$ in der rechten Halbebene liegt und die Totzeit $T_t = 0$ ist.
-Motivation für den Ausdruck ‘minimalphasig’: bei stabilen Systemen hat ein
-minimalphasiges System bei gegebenem Amplitudengang den minimal möglichen
-Phasenabfall im Phasengang.\\
-Merke: Nichtminimalphasige Systeme holen in falsche Seite aus. Wert der Sprungantwort wechselt kurz das Vorzeichen.
-
-\subsubsection{Reaslisierbarkeit}
-mit m = 3 und n = 2 illustriert, dass UTF mit $m > n$ differentierendes Verhalten
-aufweisen, solche mit m = n proportionales Verhalten; der ‘Rest’ mit $m < n$ ist
-ein Tiefpass. Systeme mit m $\leq$ n werden als realisierbar bezeichnet. Motiviert wird
-diese Bezeichnung dadurch, weil für ein Schrittsignal am Eingang ein P-Glied ideal
-funktionieren kann, ein D-Glied aber nicht. Praktisch bedeutet das, dass bei einem Regler nicht mehr Nullstellen als Pole
-eingebaut werden dürfen. $\qquad \Rightarrow \qquad m > n$ ist nicht realisierbar
-
-\subsubsection{Minimalität}
-
-Eine UTF mit Nennergrad n ist minimal, wenn keine Pol-Nullstellenkürzung
-möglich ist. Um die UTF zu realisieren, sind dann mindestens n Integratoren nötig. Zu beachten ist, dass Kürzungen in
-der rechten Halbebene normalerweise nicht erlaubt sind, da durch sie Instabilitäten
-in einem System unsichtbar werden.
-
-\subsubsection{Stabilität}
-\begin{itemize}
-\item  ist asymptotisch stabil, wenn
-alle Pole pi in der linken Halbebene liegen (ohne Imaginärachse).
-\item  ist grenzstabil, wenn
-\begin{itemize}
-\item kein Pol in der rechten Halbebene liegt und
-\item mindestens ein Pol auf der Imaginärachse liegt und
-\item alle Pole auf der Imaginärachse einfache Pole sind.
-\end{itemize}
-\item  ist instabil, wenn
-sie weder asymptotisch stabil noch grenzstabil ist.
-\item  ist stabil, wenn
-sie asymptotisch stabil ist.
-\end{itemize}
+%UTF mit m $>$ n haben bei hohen Frequenzen differentierendes Verhalten, mit m = n
+%haben sie bei hohen Frequenzen Proportionalverhalten. 
+Um solche UTF in eine
+parallele Form zu bringen, kann mit einer Polynomdivision gearbeitet werden. Die Polynomdivision wird abgebrochen, bevor negative s-Potenzen entstehen. 
+%Terme mit nicht-negativen s-Potenzen haben proportionales
+%bzw. differentierendes Übertragungsverhalten; bei höheren s-Potenzen träte auch
+%mehrfache Differentiation auf. 
+Wenn ein echt gebrochenes Polynom übrig bleibt, so kann dieses mit PBZ weiter zerlegt werden.
 
 
-\subsubsection{Stabilitätskriterien, Routh-Kriterium}
+
+\subsection{Stabilitätskriterien, Routh-Kriterium \buchSeite{38}}
 
 Eine notwendige Stabilitätsbedingung für das charakteristische Polynom besteht darin, dass alle Koeffizienten positiv sind. (Vorzeichenbedingung)
 \begin{equation}
@@ -302,14 +301,20 @@ Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit po
 	$d_1=\frac{c_{1}b_{2}-b_{1}c_{2}}{c_{1}}$
 	& $d_2=\ldots$ & \\
 	\end{tabularx}}
-	\item Durch dieses Vorgehen ergibt sich eine Dreiecksstruktur; die Tabelle endet mit
-	genau einem Eintrag in Zeile 0.
-	\item Die Auswertung der Tabelle besteht durch Inspektion der (grau unterlegten)
-	ersten Kolonne: dass alle Koeffizienten dieser Kolonne positiv sind, ist eine
-	notwendige und hinreichende Bedingung für (asymptotische) Stabilität.
 \end{itemize}
-\begin{table}
-	\begin{tabularx}{0.6\textwidth}{|X||X|X|X|X|X|X|}
+
+\begin{minipage}{9cm}
+	\begin{itemize}
+		\item Durch dieses Vorgehen ergibt sich eine Dreiecksstruktur; die Tabelle endet mit
+		genau einem Eintrag in Zeile 0.
+		\item Die Auswertung der Tabelle besteht durch Inspektion der \textbf{(grau unterlegten)}
+		ersten Kolonne: dass alle Koeffizienten dieser \textbf{Kolonne positiv} sind, ist eine
+		notwendige und hinreichende Bedingung für (asymptotische) Stabilität.
+	\end{itemize}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}{6cm}
+	\begin{tabular}{|l||l|l|l|l|l|l|}
 	\hline
 		n & \cellcolor{hellgrau}$a_n$ & $a_{n-2}$ & $a_{n-4}$ & $\ddots\vdots$ & $a_{2}$  & $a_{0}$ \\ \hline
 		n-1 & \cellcolor{hellgrau} $a_{n-1}$ & $a_{n-3}$ & $a_{n-5}$ & $\vdots\ddots$ & $a_{1}$  & 0 \\ \hline\hline
@@ -318,18 +323,23 @@ Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit po
 		n-4 & \cellcolor{hellgrau} $d_{1}$ & $\ddots$ & $\ddots$ & $\ddots$ & 0 & 0 \\ \hline
 		$\vdots$ & \cellcolor{hellgrau} $\vdots$ &  $\ddots$ & $\ddots$ & $\ddots$ & 0 & 0 \\ \hline
 		0 & \cellcolor{hellgrau} $x_1$ & 0 & 0 & 0 & 0 & 0 \\ \hline
-	\end{tabularx}
-\caption{Routh-Algorithmus}
-\end{table}
+	\end{tabular}
+\end{minipage}
 
-\subsubsection{Dominante Pole und Nullstellen}
+
+
+\subsubsection{Dominante Pole und Nullstellen \buchSeite{38}}
 
 \begin{equation}
 \boxed{Y(s)=\frac{K}{s(sT+1)}=K\mathop{\Big[}\frac{1}{s}-\frac{1}{s+\frac{1}{T}}\mathop{\Big]} \laplace K\mathop{\Big[}1-e^{\frac{-1}{T}}\mathop{\Big]}=y(t)}
 \end{equation}
+
+	\begin{figure}[h!]	
 		\begin{center}
-			\includegraphics[width=15cm]{./images/PoleNullstellen.png}
+			\includegraphics[width=10cm]{./images/PoleNullstellen.png}
 		\end{center}
+		\caption{Schrittantwort eines PT1-Glieds mit UTF $\frac{K}{sT + 1}$ (links) und Pollage bei $p_1 = -1/T$ (rechts)}
+	\end{figure}
 um eine schnelle Reaktion der Strecke
 zu erreichen, sind grosse Werte am Reglerausgang nötig. Das bedeutet, dass man
 T nicht beliebig klein machen kann, bzw. den Pol $p_1$ nicht beliebig weit nach links
@@ -393,7 +403,7 @@ Das $PT_2$-Glied hat eine UTF mit den drei Parametern K, $\xi$ und T (bzw. $\ome
 %\end{center}
 %\end{multicols}
 
-\subsubsection{Totzeit, Padé-Approximation}
+\subsubsection{Totzeit, Padé-Approximation \buchSeite{45}}
 \begin{equation}
 \boxed{e^{-sT_t}=e^x\mathop\mid\limits{_{x=-sT_t}} \quad mit \quad e^x\approx 1 \approx \frac{2+x}{2-x} \approx \frac{12+6x+x^2}{12-6x+x^2} \approx \ldots}
 \end{equation}
@@ -444,8 +454,12 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 \end{itemize}
 \end{multicols}
 
+\subsection{Analog Rechner \buchSeite{57}}
+	\begin{center}
+	\includegraphics[width=14cm]{./images/AnalogRechner}
+	\end{center}
 
-\subsection{Bodediagramm und Nyquistdiagramm}
+\subsection{Bodediagramm und Nyquistdiagramm \buchSeite{63}}
 \subsubsection{Einleitung}
 \begin{itemize}
 	\item Ist der offene Regelkreis stabil, muss man aufpassen, dass durch das Schliessen
@@ -460,12 +474,12 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 	kann der offene Regelkreis ein beliebiges LZI-System sein, insbesondere also auch
 	ein instabiles.
 \end{itemize}
-\subsubsection{Nyquistkriterium}
+\subsubsection{Vereinfachte Nyquistkriterium}
 		Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der
 		Ortskurve von $G_0$ in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur
 		Linken\grqq\ liegt.
 
-\subsubsection{Anwendung des Allgemeinen Nyquistkriteriums}
+\subsubsection{Anwendung des Allgemeinen Nyquistkriteriums \buchSeite{73}}
 \begin{enumerate}
 \item Die Anzahl N der Pole von $G_0$, die in der rechten Halbebene oder auf der
 imaginären Achse liegen, muss bestimmt werden. $(0 \leq N \leq n)$
@@ -474,16 +488,16 @@ imaginären Achse liegen, muss bestimmt werden. $(0 \leq N \leq n)$
 Gegenuhrzeigersinn), dann ist der geschlossene Regelkreis 
 $\frac{Y(s)}{R(s)} = \frac{G_0}{1+G_0}$ asymptotisch stabil.
 \end{enumerate}
-Beispiel: $G_0(S)= K\cdot\frac{1}{s}\frac{1}{(s+1)^2}$
-Wegen des Integrators ist N = 1. Dies bedeutet, dass der kritische Punkt
-einmal im Gegenuhrzeigersinn umschlungen werden muss.\\
-\begin{tabularx}{\textwidth}{XXX}
-$K > 2$ & Anzahl Umschlingungen: -1 & Regelkreis instabil \\
-$2 > K > 0$ & Anzahl Umschlingungen: 1 & Regelkreis (asymptotisch) stabil\\
-$0 >K$ & Anzahl Umschlingungen: 0 & rightarrow Regelkreis instabil\\
-\end{tabularx}
+%Beispiel: $G_0(S)= K\cdot\frac{1}{s}\frac{1}{(s+1)^2}$
+%Wegen des Integrators ist N = 1. Dies bedeutet, dass der kritische Punkt
+%einmal im Gegenuhrzeigersinn umschlungen werden muss.\\
+%\begin{tabularx}{\textwidth}{XXX}
+%$K > 2$ & Anzahl Umschlingungen: -1 & Regelkreis instabil \\
+%$2 > K > 0$ & Anzahl Umschlingungen: 1 & Regelkreis (asymptotisch) stabil\\
+%$0 >K$ & Anzahl Umschlingungen: 0 & rightarrow Regelkreis instabil\\
+%\end{tabularx}
 
-\subsection{Modellreduktion}
+\subsection{Modellreduktion \buchSeite{76}}
 
 Tendenziell versucht man bei einer Modellreduktion, die tieffrequenten Eigenschaften
 beizubehalten und dafür Ungenauigkeiten in den höheren Frequenzbereichen in
