@@ -1,7 +1,7 @@
-\section{Optimierung von Reglern}
-\subsection{Reglerstrukturen}
-\includegraphics[width=10cm]{./images/Reglerstruktur.png}
-\subsubsection{Hierarchische Regelung}
+\section{Optimierung von Reglern \buchSeite{123}}
+\subsection{Reglerstrukturen \buchSeite{124}}
+%\includegraphics[width=6cm]{./images/Reglerstruktur.png}
+\subsubsection{Hierarchische Regelung \buchSeite{126}}
 Die verschiedenen Hierarchiestufen unterscheiden sich in einigen Punkten:
 \begin{itemize}
 	\item Die tiefer liegenden Regler sind ‘klassische’ Regler, die permanent gemäss einer
@@ -15,7 +15,7 @@ Die verschiedenen Hierarchiestufen unterscheiden sich in einigen Punkten:
 	bezüglich Abläufen, Fehlern, Ausfällen, Performance etc.
 \end{itemize}
 
-\subsubsection{Kaskadenregelung}
+\subsubsection{Kaskadenregelung \buchSeite{128}}
 \begin{multicols}{2}
 \includegraphics[width=10.5cm]{./images/KaskadenRegelung.png}
 Generell gilt bei der Kaskadenregelung folgendes:
@@ -35,25 +35,22 @@ erreicht; die Regler stören sich gegenseitig weniger.
 Normalerweise kann mit der Kaskadenstruktur eine höhere Bandbreite und
 auch eine grössere Robustheit erreicht werden gegenüber dem Fall, wenn nur
 der äusserste Regelkreis geschlossen wird.
-\item Durch die kaskadierte Struktur des Reglers entsteht ein besseres Störverhalten.
-Treten in Abb. 103 Störungen bei $z_0$ und $z_1$ auf, reagiert bereits der Regler
+Treten bei $Z_0$ und $Z_1$ auf, reagiert bereits der Regler
 $G_{R,1}$ darauf.
-\item Entspricht in Abb. 103 der Block GS,2 einem Integrator, dann kann durch die
+\item Entspricht  GS,2 einem Integrator, kann durch die
 Messung von $y_1(t) = \dot{y}(t)$ vermieden werden, dass das Signal y(t) im Regler
 differenziert werden muss. Dies ist ja gerade bei verrauschten Signalen nicht
 zu empfehlen.
-\item Natürlich sind die Kosten des zusätzlichen Sensors und seine Integration ins
-Regelsystem nachteilig. (Auf Seite der Aktoren ändert sich dagegen nichts.)
 \end{itemize}
 \end{multicols}
 
-\subsubsection{Störgrössenaufschaltung}
+\subsubsection{Störgrössenaufschaltung \buchSeite{123}}
 
 
-\subsubsection{Vorfilter, Vorsteuerung, 2DOF (Two degrees-of-freedom)}
+\subsubsection{Vorfilter, Vorsteuerung, 2DOF (Two degrees-of-freedom) \buchSeite{132}}
 
 
-\subsection{Reglereinstellungen}
+\subsection{Reglereinstellungen \buchSeite{123}}
 
 %\subsubsection{Empirische Einstellregeln nach Ziegler-Nichols}
 %\begin{tabularx}{0.5\textwidth}{|X||X|X|X|}
@@ -71,22 +68,23 @@ Gütemass J reduziert.
 \begin{eqnarray}
 J(k_1,\cdots,k_M)=\int\limits_{0}^{T_{end}}f(e(t,k_1,\cdots,k_M))dt\\
 %J=\int\limits_{0}^{\infty}e(t)^2dt= \frac{1}{2\pi} \int\limits_{-\infty}^{\infty}|E(j\omega)|^2d\omega= \frac{1}{2\pi} \int\limits_{-\infty}^{\infty}E(j\omega)E^{\ast}(j\omega)d\omega\\
-J_1=\frac{b_0^2}{2a_0a_1} \qquad J_2=\frac{b_1^2a_0+b_0^2a_2}{2a_0a_1a_2} \qquad J_3=\frac{b_2^2a_0a_1+(b_1^2-2b_0b_2)a_0a_3+b_0^2a_2a_3}{2a_0a_3(a_1a_2-a_0a_3)} \qquad  \\
-\text{Bedingung: Nennerpolynom E(s) muss stabil sein}
+%J_1=\frac{b_0^2}{2a_0a_1} \qquad J_2=\frac{b_1^2a_0+b_0^2a_2}{2a_0a_1a_2} \qquad J_3=\frac{b_2^2a_0a_1+(b_1^2-2b_0b_2)a_0a_3+b_0^2a_2a_3}{2a_0a_3(a_1a_2-a_0a_3)} \qquad  \\
+%\text{Bedingung: Nennerpolynom E(s) muss stabil sein}
 \end{eqnarray}
 
 \begin{itemize}
 \item Die Funktion $f(e)$ wird meist so gewählt, dass $f(\overline{e}) > f(e)$ für $|\overline{e}| > |e|$.
-Kandidaten sind z.B. $f(e) = |e| oder f(e) = e^2$ (ISE, integral of squared
-error). Grössere Werte von e werden damit ‘bestraft’; je grösser der Wert von
+Kandidaten sind z.B. $f(e) = |e|$ oder $f(e) = e^2$ (ISE, integral of squared
+error). Grössere Werte von e werden damit "'bestraft"'; je grösser der Wert von
 J ist, desto schlechter ist der Regelkreis.
 \item Die Dauer $T_{end}$ des ausgewerteten Intervalls muss auf die (zu erwartenden)
-Zeitkonstanten des Regelkreises abgestimmt sein. Tend sollte mindestens so
-gross sein, dass der Regelkreis bei vernünftiger Reglereinstellung als eingeschwungen
-gelten kann.
+Zeitkonstanten des Regelkreises abgestimmt sein. $T_{end}$ sollte mindestens so
+gross sein, dass der Regelkreis bei vernünftiger Reglereinstellung als eingeschwungen gelten kann.
+\item \textbf{Allgemeine Anwendung des quadratischen Gütemasses \buchSeite{139}}
 \end{itemize}
 
-\subsubsection{Vorgabe der Führungsübertragungsfunktion}
+
+\subsubsection{Vorgabe der Führungsübertragungsfunktion \buchSeite{143}}
 
 Wie kann der Regler bestimmt werden, mit dem das gewünschte $G_f(s)$ resultiert?
 Der Regler für eine Strecke $G_S(s) = Z_S(s)/N_S(s)$ und für eine geeignet gewählte
