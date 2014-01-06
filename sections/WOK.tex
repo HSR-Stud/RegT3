@@ -1,4 +1,4 @@
-\section{Reglerentwurf mit Wurzelortskurven (WOK)}
+\section{Reglerentwurf mit Wurzelortskurven (WOK) \buchSeite{93}}
 Wurzelortskurven beschreiben die Pole linearer Systeme in Abhängigkeit von freien
 Parametern.
 \begin{itemize}
@@ -17,7 +17,7 @@ Parametern.
 \end{itemize}
 
 
-\subsection{Zeichnen der Wurzelortskurven}
+\subsection{Zeichnen der Wurzelortskurven \buchSeite{93}}
 \begin{equation}
 G_f(s)=\frac{KG(s)}{1+KG(s)}=\frac{K\frac{Z(s)}{N(s)}}{1+K\frac{Z(s)}{N(s)}}=\frac{KZ(s)}{\underbrace{N(s)+KZ(s)}}=\frac{Z_f(s)}{N_f(s)}
 \end{equation}
@@ -34,7 +34,7 @@ G_f(s)=\frac{KG(s)}{1+KG(s)}=\frac{K\frac{Z(s)}{N(s)}}{1+K\frac{Z(s)}{N(s)}}=\fr
 	\end{flushleft}
 \end{multicols}
 
-\subsubsection{Voraussetzungen und Vereinbarungen}
+\subsubsection{Voraussetzungen und Vereinbarungen \buchSeite{95}}
 \begin{itemize}
 \item  Die UTF $G(s)=\frac{Z(s)}{N(s)}=\frac{s^m + b_{m-1}s^{m-1}+ ... + b_{1}s+b_{0}}{s^{n}+a_{n-1}s^{n-1} + ... + a_{2}s^{2}+a_{1}s + a_{0}}$
 ist eine gebrochen rationale
@@ -48,32 +48,43 @@ als Teil (d.h. als Faktor) von K betrachtet werden.
 ist, dass K eine allfällig vorhandene Verstärkung k0 beinhaltet.
 \end{itemize}
 
-\subsubsection{Grundsätzliches Aussehen der WOK}
+\subsubsection{Grundsätzliches Aussehen der WOK \buchSeite{96}}
+\begin{minipage}{14cm}
+	\begin{itemize}
+		\item  Das charakteristische Polynom $N_f (s) = N(s)+K \cdot Z(s)$ hat für jeden K-Wert
+		n Wurzeln. Visualisiert man die Wurzeln für alle positiven K-Werte, dann
+		ergeben sich n kontinuierliche Linien (Äste).
+		\item  Da Pole immer reell oder (paarweise) komplex-konjugiert sind, ist das Gesamtbild
+		der WOK immer symmetrisch bezüglich der reellen Achse.
+	\end{itemize}
+\end{minipage}
+\hspace{0.5cm}
+\begin{minipage}{4cm}
+	\textbf{Merke:} \\
+		m = Anz. Nullstellen \& \\
+		n = Anz. Pole von $G_0$
+\end{minipage}
 \begin{itemize}
-\item  Das charakteristische Polynom $N_f (s) = N(s)+K \cdot Z(s)$ hat für jeden K-Wert
-n Wurzeln. Visualisiert man die Wurzeln für alle positiven K-Werte, dann
-ergeben sich n kontinuierliche Linien (Äste).
-\item  Da Pole immer reell oder (paarweise) komplex-konjugiert sind, ist das Gesamtbild
-der WOK immer symmetrisch bezüglich der reellen Achse.
-\item  Für K = 0 sind die n Wurzeln von $N_f(s)$ und N(s) identisch und entsprechen
-den n Polen von G(s).
-Für $K \rightarrow \infty$ streben m der Wurzeln von $N_f(s)$ zu den Wurzeln von Z(s). Die
-restlichen n-mWurzeln von Nf (s) streben entlang von Geraden asymptotisch
-ins ‘Unendliche’.
-Damit teilen sich die n Äste auf in zwei Arten:
-\begin{enumerate}
-\item m Äste, die von m Polen von G(s) zu den m Nullstellen von G(s) gehen
-\item n - m Äste, die von n - m Polen von G(s) ins Unendliche laufen.
-\end{enumerate}
+		\item  Für K = 0 sind die n Wurzeln von $N_f(s)$ und N(s) identisch und entsprechen
+		den n Polen von G(s).
+		Für $K \rightarrow \infty$ streben m der Wurzeln von $N_f(s)$ zu den Wurzeln von Z(s). Die
+		restlichen n-mWurzeln von Nf (s) streben entlang von Geraden asymptotisch
+		ins ‘Unendliche’.
+		Damit teilen sich die n Äste auf in zwei Arten:
+		\begin{enumerate}
+			\item m Äste, die von m Polen von G(s) zu den m Nullstellen von G(s) gehen
+			\item n - m Äste, die von n - m Polen von G(s) ins Unendliche laufen.
+		\end{enumerate}
 \end{itemize}
 
-\subsubsection{Regeln zum Zeichnen der WOK}
+
+\subsubsection{Regeln zum Zeichnen der WOK \buchSeite{96}}
 \begin{enumerate}
-\item Pol-/Nullstellen-Plan:\\
+\item \textbf{Pol-/Nullstellen-Plan:}\\
 Die Pole $p_k (k = 1...n)$ von G(s) werden als x in der komplexen Ebene eingezeichnet;
 dies sind die Startpunkte aller n Äste. Die Nullstellen $z_k (k = 1...m)$
 werden als o eingezeichnet; dies sind die Endpunkte von m Ästen.
-\item Reelle Achse:\\
+\item \textbf{Reelle Achse:}\\
 Diejenigen Punkte der reellen Achse welche zu den WOK gehören, haben rechts
 von sich auf der reellen Achse eine ungerade Anzahl von Polen und Nullstellen.
 Um diese Punkte einzuzeichnen, kann man von ‘genug weit’ rechts startend
@@ -81,9 +92,11 @@ der reellen Achse entlang ‘genug weit’ nach links fahren. Dabei wechselt der
 Zeichenstift bei jedem Pol und bei jeder Nullstelle den Status zwischen ‘nicht
 zeichnend’ bzw. ‘zeichnend’. Der Anfangsstatus ist ‘nicht zeichnend’.
 \begin{figure}[h!]
-\includegraphics[width=12cm]{./images/reelleAchsePoleNullWOK.png}
-\caption{Zur WOK gehörende Teile der reellen Achse}
-\label{beispielAchse}
+	\begin{center}
+		\includegraphics[width=12cm]{./images/reelleAchsePoleNullWOK.png}
+	\end{center}
+	\caption{Zur WOK gehörende Teile der reellen Achse}
+	\label{beispielAchse}
 \end{figure}
 
 Im etwas komplexeren Beispiel von Abb.\ref{beispielAchse} entstehen 6 Striche. Einer davon
@@ -93,12 +106,12 @@ sind gültige WOK-Äste. An den mit ? versehenen Stellen ist offensichtlich die
 Situation noch unbefriedigend.
 
 
-\item Asymptoten: Schnittpunkt und Richtungen:\\
+\item \textbf{Asymptoten: Schnittpunkt und Richtungen:}\\
 Wenn $n > m$ gilt, dann streben n-m Äste der WOK asymptotisch gegen
 Unendlich. Die n-m Asymptoten sind Geraden. Sie schneiden sich im Punkt
 \begin{multicols}{2}
 		\includegraphics[width=10cm]{./images/asymptotenrichtunge.png}
-Abbildung \ref{Asymptotenrichtungen}: Asymptotenrichtungen bei WOK für die Fälle n - m = 1, 2, 3
+Abbildung \ref{Asymptotenrichtungen}: Asymptotenrichtungen bei WOK für die Fälle n - m = 1, 2, 3 (Weitere im Anhang)
 		\label{Asymptotenrichtungen}
 \columnbreak
 	\begin{flushright}
@@ -109,7 +122,7 @@ Eine der Asymptoten zeigt in die Richtung $\phi = \frac{\pi}{n-m}$. Die weiteren
 sind dann gleichmässig um den Winkel $\frac{2\pi}{n-m}$ versetzt,
 
 \begin{multicols}{2}
-\item Verzweigungspunkte, Vereinigungspunkte:\\
+\item \textbf{Verzweigungspunkte, Vereinigungspunkte:}\\
 Erklärung zu den In Abb. \ref{Asymptotenrichtungen} mit ? versehenen Stellen. Treffen
 zwei Äste, von Polen her kommend, aufeinander, dann verzweigt
 sich die WOK. Beim Verzweigungspunkt treten die Äste (meistens) rechtwinklig
@@ -118,61 +131,64 @@ Winkel auf die reelle Achse zustreben und nach dem Vereinigungspunkt auf
 dieser weiterlaufen. In Abb. \ref{KomplettWOK} ist die Skizze der WOK aus Abb. \ref{beispielAchse}
 komplettiert: $\sigma_{V,1}$ ist dabei ein Vereinigungspunkt, $\sigma_{V,2}$ und $\sigma_{V,3}$ sind zwei
 Verzweigungspunkte. $\sigma_{V,1}$ und $\sigma_{V,2}$ sind näherungsweise mit zwei Kreisbögen
-verbunden. Da n-m = 3 gilt, entstehen drei Asymptoten, deren Schnittpunkt
+verbunden. \\
+
+\columnbreak
+Da n-m = 3 gilt, entstehen drei Asymptoten, deren Schnittpunkt
 bei $\sigma_A$ liegt.
 
-\includegraphics[width=7.5cm]{./images/KomplettWOK.png}\\
-Abbildung: \ref{KomplettWOK} {Komplettierte Skizze der WOK Abb: \ref{beispielAchse}} \label{KomplettWOK}
+\includegraphics[width=6.5cm]{./images/KomplettWOK.png}\\
+Abbildung: \ref{KomplettWOK} {Komplettierte Skizze der WOK Abb: \ref{Asymptotenrichtungen}} \label{KomplettWOK}
 \end{multicols}
+Für eine \textbf{einfache Skizze} genügt es meistens, die Verzweigungs- bzw. Vereinigungspunkte ‘etwa in der Mitte’ zwischen den involvierten zwei Polen bzw. Nullstellen zu plazieren.
 \end{enumerate}
 
-\subsection{Interpretation der Wurzelortskurven}
+\subsection{Interpretation der Wurzelortskurven \buchSeite{100}}
 
-\subsubsection{Auslegen eines P-Reglers mithilfe der WOK}
+\subsubsection{Auslegen eines P-Reglers mithilfe der WOK \buchSeite{101}}
 \begin{figure}[h!]
-	\begin{subfigure}[b]{8.5cm}
+	\begin{subfigure}[t]{8.5cm}
 Beispiel: Eine Strecke \[G_s(s)=\frac{5}{s^2 + 6s +8}=\frac{5}{(s+2)(s+4)}\] soll mit einem P-Regler mit
  möglichst grosser Verstärkung $K_R$ geregelt werden, wobei alle Pole eine minimale
  Dämpfung $\xi = 0.7$ haben sollen.\\
-Lösung: \[G_0=K_R\cdot\frac{5}{\underbrace{(s+2)(s+4)}}=\underbrace{K_r\cdot 5} \cdot\frac{1}{\underbrace{(s+2)(s+4)}}\]
-\vspace{-0.5cm}\\
-\textcolor{white}{x} \hspace{1.75cm} $G_s(s)$ \hspace{1.45cm} K  \hspace{1.1cm} G(s)\\
 
-	\end{subfigure}\qquad
-	\begin{subfigure}[b]{10cm}
-		\includegraphics[width=7cm]{./images/PReglerBeispielWOK1.png}
-		\includegraphics[width=10cm]{./images/PReglerBeispielWOK2.png}
+
+	\end{subfigure}$\qquad$
+	\begin{subfigure}[t]{10cm}
+		Lösung:
+		 \[G_0=K_R\cdot\underbrace{\frac{5}{(s+2)(s+4)}}_{G_s(s)}=\underbrace{K_r\cdot 5}_{K} \cdot\underbrace{\frac{1}{(s+2)(s+4)}}_{G(s)}\]
+		%\includegraphics[width=7cm]{./images/PReglerBeispielWOK1.png}
 	\end{subfigure}
 \end{figure}
 
+Zusammenfassung des Vorgehens:\\
+\begin{center}
+    \includegraphics[width=12cm]{./images/PReglerBeispielWOK2.png}
+\end{center}
+
 \begin{multicols}{2}
-Zusammenfassung des Vorgehens:
-
-\begin{eqnarray}
-	K=\frac{\prod_{i=1}^{n} \theta_i}{\prod_{i=1}^{m}\lambda_i}=\frac{\theta_1\theta_2\cdots\theta_n}{\lambda_1\lambda_2\cdots\lambda_m} \\
-	\theta \quad \text{Wurzel Abstände}
-\end{eqnarray}
-
-\begin{itemize}
-	\item  Links: Die WOK-Äste treffen sich bei -3 und laufen vertikal weiter.
-	\item  Mitte: Die Dämpfung nimmt mit steigendem Wert von K (bzw. $K_R$) ab; die
-	Pole kommen auf die Schnittpunkte der WOK mit den Winkelhalbierenden.
-	\item  Rechts: Um den Wert K (bzw. $K_R$) zu bestimmen, muss einer der plazierten
-	Pole betrachtet werden. Der Wert von K berechnet sich aus den Abständen $\theta_i$ dieses Pols zu den Polen von G(s) und den Abständen $\lambda_i$ dieses Pols zu den
-	Nullstellen von G(s): Im konkreten Beispiel hat es keine Nullstellen, womit das entsprechende Produkt
-	gleich Eins wird. 	$K=\theta_1\theta_2$ mit $\theta_1=\theta_2=\sqrt{3^2+1^2}$
-\end{itemize}
-
+    \begin{itemize}
+    	\item  \textbf{Links:} Die WOK-Äste treffen sich bei -3 und laufen vertikal weiter.
+    	\item  \textbf{Mitte:} Die Dämpfung nimmt mit steigendem Wert von K (bzw. $K_R$) ab; die
+    	Pole kommen auf die Schnittpunkte der WOK mit den Winkelhalbierenden um eine Dämpfung von $\xi$ = 0.7 zu erreichen.
+    	\item  \textbf{Rechts:} Um den Wert K (bzw. $K_R$) zu bestimmen, muss einer der platzierten	Pole betrachtet werden. Der Wert von K berechnet sich aus den Abständen $\theta_i$ dieses Pols zu den Polen von G(s) und den Abständen $\lambda_i$ dieses Pols zu den
+    	Nullstellen von G(s): 
+        \[
+            K=\frac{\prod_{i=1}^{n} \theta_i}{\prod_{i=1}^{m}\lambda_i}=\frac{\theta_1\theta_2\cdots\theta_n}{\lambda_1\lambda_2\cdots\lambda_m} \\
+        \]
+        Im konkreten Beispiel hat es keine Nullstellen, womit das entsprechende Produkt
+    	gleich Eins wird. 	Damit ist $K=\theta_1\theta_2$ .Mit $\theta_1=\theta_2=\sqrt{3^2+1^2}$ ergibt sich \textbf{K = 10} bzw. $K_R = K/5 = 2$.
+    \end{itemize}
 \end{multicols}
 
 
-\subsubsection{Auslegen dynamischer Regler mithilfe der WOK}
+\subsubsection{Auslegen dynamischer Regler mithilfe der WOK \buchSeite{102}}
 
 
-\subsubsection{Allgemeine Stabilitätsanalyse mithilfe der WOK}
+\subsubsection{Allgemeine Stabilitätsanalyse mithilfe der WOK \buchSeite{109}}
 Der Regelkreis $K\cdot G_s(S)=K\cdot\frac{1}{S^2+\alpha s + 2}$ mit den zwei Parametern K und $\alpha$ hat das charakteristische
 Polynom $N_f(s)=N(s) + K\cdot Z(s) = s2 + \alpha s + (2 + K)$. Denkt man sich jeweils einen der
-Parameter als fix gegeben, kann mithilfe der WOK der Einfluss des anderen Parameters
+Parameter als fix gegeben, kann mithilfe der WOK den Einfluss des anderen Parameters
 auf die Pollage des geschlossenen Regelkreises untersucht werden:
 
 Fall 1, $\alpha$ fix, K variabel
