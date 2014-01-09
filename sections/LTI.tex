@@ -132,14 +132,15 @@
 
 \subsection{Differentialgleichungen lösen\buchSeite{25-28}}
 Die ‘interne’ Beschreibung transformieren, fallen Probleme mit Anfangsbedingungen weg, da man näher
-an den physikalischen Grössen bleibt
-\begin{multicols}{2}
-		\begin{center}
-			\includegraphics[width=4cm]{./images/diffgleichung.png}
-		\end{center}
-		$Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}$
-	\columnbreak
-\begin{center}
+an den physikalischen Grössen bleibt\\
+\begin{minipage}{0.45\textwidth}
+  \begin{center}
+    \includegraphics[width=5cm]{./images/diffgleichung.png}
+  \end{center}
+  $Y(s) = \frac{s^2 LC+sRC}{s^2 LC +sRC +1}\cdot U(s) + \frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}$
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+  \begin{center}
 	\begin{tabular}{ll}
 		$i(t) = C \cdot \dot{u}_{C}(t)$ & $I(s) = C  \cdot  [s  \cdot  U_{C}(s) - u_{C}(0)]$  \\
 		$u_{L}(t) = L \cdot \dot{i}(t)$ & $U_{L}(s) = L  \cdot  [s  \cdot  I(s) - i(0)]$ \\
@@ -148,7 +149,8 @@ an den physikalischen Grössen bleibt
 		$y(t) = u_{R}(t) + u_{L}(t)$ & $Y (s) = U_{R}(s) + U_{L}(s)$ \\
 	\end{tabular}
 \end{center}
-\end{multicols}
+\end{minipage}
+
 
 
 %Gleichungssystem mit 5 Gleichungen und 6 Signalen. Das Eliminieren der 4 internen Signale $(U_{C}, U_{R}, U_{L}, I)$ fällt leichter, da weniger Anfangsbedingungen nötig sind, als wenn nur 1 Gleichung im Zeitbereich in den Bildbereich transformiert wird.\\
@@ -158,7 +160,7 @@ an den physikalischen Grössen bleibt
 \hspace{2.3cm}G(s)\\
 $Y(s) = \underbrace{\frac{\overbrace{s^2 LC+sRC}}{s^2 LC +sRC +1}\cdot U(s)} + \underbrace{\frac{[sLC + RC] \cdot u_{C}(0) + L \cdot i(0)}{s^2 LC +sRC +1}}$ \newline
 \textcolor{white}{x} \hspace{2.4cm} $Y_{E}(s)$ \hspace{3.8cm} $Y_{F}(s)$ \\
-Das Ausgangssignal Y (s) setzt sich aus den beiden Termen $Y_{E}(s)$ und $Y_{F}(s)$ zusammen.Der erzwungene Anteil $Y_{E}(s)$ ist durch das Eingangssignal U(s) bestimmt, aber unabhängig von den Anfangsbedingungen des Netzwerks.
+Das Ausgangssignal Y (s) setzt sich aus den beiden Termen $Y_{E}(s)$ und $Y_{F}(s)$ zusammen. Der erzwungene Anteil $Y_{E}(s)$ ist durch das Eingangssignal U(s) bestimmt, aber unabhängig von den Anfangsbedingungen des Netzwerks.
 Beim freien Anteil $Y_{F}(s)$ ist es umgekehrt; dieser hängt nur von den Anfangsbedingungen,
 nicht aber vom Eingangssignal ab. Die freie Antwort zeigt also, wie
 das System sich verhält, wenn man es ‘sich selbst überlässt’
@@ -234,7 +236,7 @@ sie weder asymptotisch stabil noch grenzstabil ist.
 \begin{itemize}
 \item Bedingung 1: In der gezeigten Form kann die PBZ nur durchgeführt werden,
 wenn die Pole paarweise verschieden sind: $p_{i} \neq p_{j}$ falls i $\neq$ j.
-\item Bedingung 2: In der gezeigten Form kann die PBZ nur durchgeführt werden, wenn m < n. Die Schrittantwort des Systems ist dann stetig.
+\item Bedingung 2: In der gezeigten Form kann die PBZ nur durchgeführt werden, wenn $m < n$. Die Schrittantwort des Systems ist dann stetig.
 \item Bei komplex-konjugierten Polen $p_{j} = p^{\ast}_{i}$ ergeben sich komplex-konjugierte Faktoren
 $c_{j} = c^{\ast}_{i}$ . Werden die entsprechenden zwei Terme addiert, ergeben sich
 für die Summe reelle Koeffizienten (PT2-Glied):
@@ -253,13 +255,13 @@ In der faktorisierten Form äussert sich dies durch eine Pol-/Nullstellenkürzun
 
 \subsubsection{Übertragungsfunktion mit komplexen Polen}
 \[G(s) =\frac{8s^{2} + 70s + 134}{s^3 + 15s^2 + 81s + 175}= \frac{8s^2+70s+134}{(s+7)(s+4+3j)(s+4-3j)}=\frac{2}{s+7}+\underbrace{\frac{3+2j}{s+4-3j}+\frac{3-2j}{s+4+3j}}\]
-\textcolor{white}{x} \hspace{14.5cm} $\frac{6s+12}{s'2+8s+25}$\\
+\textcolor{white}{x} \hspace{14.5cm} $\frac{6s+12}{s^2+8s+25}$\\
 
 Grundsätzlich kann G(s) wieder als Parallelschaltung dreier PT1-Glieder aufgefasst
-werden. Glieder mit komplexen Werte für Verstärkung und Zeitkonstante werden
+werden. Glieder mit komplexen Werten für Verstärkung und Zeitkonstante werden
 üblicherweise aber zu Teilsystemen zweiter Ordnung zusammengefasst.
 
-\subsubsection{Fall m $>$ n}
+\subsubsection{Fall m $\geq$ n}
 %UTF mit m $>$ n haben bei hohen Frequenzen differentierendes Verhalten, mit m = n
 %haben sie bei hohen Frequenzen Proportionalverhalten. 
 Um solche UTF in eine
@@ -286,7 +288,7 @@ Da dies keine hinreichende Bedingung ist muss bei bestehen des Kriteriums mit po
 \begin{itemize}
 	\item Die Tabelle hat n + 1 Zeilen mit den Indizes n . . . 0.
 	\item In die beiden oberen Zeilen werden die Koeffizienten ai gefüllt. Je nach Systemordnung
-	kommt dabei der letzte Koeffizient a0 in die erste oder zweite Zeile.
+	kommt dabei der letzte Koeffizient $a_0$ in die erste oder zweite Zeile.
 	
 	\item {Jede der weiteren Zeilen der Tabelle ergibt sich durch algebraisches Rechnen
 	mit den Einträgen der zwei darüber liegenden Zeilen. Das Muster der Berechnung
@@ -456,7 +458,7 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 
 \subsection{Analog Rechner \buchSeite{57}}
 	\begin{center}
-	\includegraphics[width=12cm]{./images/AnalogRechner}
+	\includegraphics[width=0.7\textwidth]{./images/AnalogRechner}
 	\end{center}
 
 \subsection{Bodediagramm und Nyquistdiagramm \buchSeite{63}}
@@ -474,7 +476,7 @@ Totzeitglieds $e^{-sT_t} : \angle e^{-j\omega T_t} = -\omega T_t$.
 	kann der offene Regelkreis ein beliebiges LZI-System sein, insbesondere also auch
 	ein instabiles.
 \end{itemize}
-\subsubsection{Vereinfachte Nyquistkriterium}
+\subsubsection{Vereinfachtes Nyquistkriterium}
 		Der geschlossene Regelkreis ist genau dann stabil, wenn beim Durchlauf der
 		Ortskurve von $G_0$ in Richtung zunehmender Frequenz der kritische Punkt -1 \glqq zur
 		Linken\grqq\ liegt.

@@ -35,9 +35,9 @@ erreicht; die Regler stören sich gegenseitig weniger.
 Normalerweise kann mit der Kaskadenstruktur eine höhere Bandbreite und
 auch eine grössere Robustheit erreicht werden gegenüber dem Fall, wenn nur
 der äusserste Regelkreis geschlossen wird.
-Treten bei $Z_0$ und $Z_1$ auf, reagiert bereits der Regler
+Treten bei $Z_0$ und $Z_1$ Störungen auf, reagiert bereits der Regler
 $G_{R,1}$ darauf.
-\item Entspricht  GS,2 einem Integrator, kann durch die
+\item Entspricht  $G_{S,2}$ einem Integrator, kann durch die
 Messung von $y_1(t) = \dot{y}(t)$ vermieden werden, dass das Signal y(t) im Regler
 differenziert werden muss. Dies ist ja gerade bei verrauschten Signalen nicht
 zu empfehlen.
@@ -60,8 +60,9 @@ zu empfehlen.
 %PI-Regler & $0.9\cdot\frac{T_g}{K_s\cdot T_u}$ & $3.33\cdot T_u$ & - \\ \hline
 %PID-Regler & $1.2\cdot\frac{T_g}{K_s\cdot T_u}$ & $2\cdot T_u$ & $0.5\cdot T_u$ \\ \hline
 %\end{tabularx}
+\subsubsection{Ziegler-Nichols \buchSeite{134}}
 
-\subsubsection{Optimierung mithilfe eines Gütemasses}
+\subsubsection{Optimierung mithilfe eines Gütemasses \buchSeite{136}}
 
 Zur einfacheren Beurteilung der Regelgüte wird die Information der Signale mit einer Zielfunktion auf ein
 Gütemass J reduziert.
@@ -90,7 +91,7 @@ Wie kann der Regler bestimmt werden, mit dem das gewünschte $G_f(s)$ resultiert
 Der Regler für eine Strecke $G_S(s) = Z_S(s)/N_S(s)$ und für eine geeignet gewählte
 Führungs-UTF $G_f(s) = Z_f(s)/N_f(s)$ kann so berechnet werden:
 \begin{equation}
-\boxed{G_R(s)=\frac{Z_f(s)}{N_f(s)-Z_f(s)}\cdot\frac{N_S(s)}{Z_S(s)}}
+\boxed{G_R(s)=\frac{Z_f(s)}{N_f(s)-Z_f(s)}\cdot\frac{N_S(s)}{Z_S(s)}} = \frac{G_f(s)}{1-G_f(s)}\cdot \frac{1}{G_S(s)}
 \end{equation}
 \begin{itemize}
 \item  Die Strecke muss stabil sein. Andernfalls würden in der rechten Halbebene
