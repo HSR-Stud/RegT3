@@ -31,3 +31,5 @@
 *.vrb
 *.xdy
 *.tdo
+revision.tex
+*.fls
