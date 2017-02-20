@@ -1,14 +1,16 @@
-RegT3
-=====
+#Regelungstechnik 3
 
-Regelungstechnik 3
-
-Unterlagen + Hilfsmittel, die in der Prüfung verwendet werden dürfen:
-- 2 Bücher
+####Unterlagen + Hilfsmittel, die in der PrÃ¼fung verwendet werden dÃ¼rfen:
+- 2 BÃ¼cher
 - 10 A4-Seiten handgeschrieben oder kopiert
-  NB: diese Zusammenfassung muss NICHT während des Semesters abgegeben werden
+  NB: diese Zusammenfassung muss NICHT wÃ¤hrend des Semesters abgegeben werden
 - KEIN Taschenrechner
+
+####BÃ¼cher
+
+Rote Seitennummer - Skript FS 16  
+GrÃ¼ne Seitennummer - Taschenbuch der Regelungstechnik 
 
 =============================================================================
 
-Stand: 31.01.2013
+Stand: 17.02.2017
