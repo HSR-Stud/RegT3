@@ -6,19 +6,25 @@
 	</projects>
 	<buildSpec>
 		<buildCommand>
+			<name>org.eclipse.texlipse.builder.TexlipseBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
 			<name>net.sourceforge.texlipse.builder.TexlipseBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.texlipse.builder.TexlipseNature</nature>
 		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
 	</natures>
 	<linkedResources>
 		<link>
 			<name>.tex</name>
 			<type>1</type>
-			<location>C:/Program Files/MiKTeX/tex/latex/tools/.tex</location>
+			<location>/Applications/Eclipse.app/Contents/MacOS/C::/Program Files/MiKTeX/tex/latex/tools/.tex</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -33,3 +33,4 @@
 *.tdo
 revision.tex
 *.fls
+/tmp/
